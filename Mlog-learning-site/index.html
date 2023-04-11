@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/main.js"></script>
+    <meta charset="utf-8">
+    <title>Mlog-Learning</title>
+</head>
+
+<body>
+    <header>
+        <h1>       
+            A website for helping learn a Mindustry Logic "M-log" for beginners<br>
+            Here you can find a lot of information about processors, codding and many other stuffs
+        </h1>
+    </header>
+    <nav>
+        <div id="link">
+            <h3>Navigation:</h3>
+            <ol>
+                <li><a href="" id="link">Input And Output</a></li><br>
+                <ul>
+                    <li><a href="">read</a></li>
+                    <li><a href="">write</a></li>
+                    <li><a href="">draw</a></li>
+                    <li><a href="">print</a></li>
+                </ul>
+
+                <br><hr><br>
+
+                <li><a href="" id="link">Block Control</a></li><br>
+                <ul>
+                    <li><a href="">drawflush</a></li>
+                    <li><a href="">printflush</a></li>
+                    <li><a href="">getlink</a></li>
+                    <li><a href="">control</a></li>
+                    <li><a href="">radar</a></li>
+                    <li><a href="">sensor</a></li>
+                </ul>    
+
+                <br><hr><br>
+
+                <li><a href="" id="link">Operations</a></li><br>
+                <ul>
+                    <li><a href="">set</a></li>
+                    <li><a href="">operation</a></li>
+                    <li><a href="">lookup</a></li>
+                    <li><a href="">pack color</a></li>
+                </ul>
+
+                <br><hr><br>
+
+                <li><a href="" id="link">Flow Control</a></li><br>
+                <ul>
+                    <li><a href="">wait</a></li>
+                    <li><a href="">stop</a></li>
+                    <li><a href="">end</a></li>
+                    <li><a href="">jump</a></li>
+                </ul>
+
+                <br><hr><br>
+
+                <li><a href="" id="link">Unit Control</a></li><br>
+                <ul>
+                    <li><a href="">ubind</a></li>
+                    <li><a href="">ucontrol</a></li>
+                    <li><a href="">uradar</a></li>
+                    <li><a href="">ulocate</a></li>
+                </ul>
+                
+                <br><hr><br>
+
+                <li><a href="" id="link">Code Examples</a></li><br>
+                <ul>
+                    <li><a href="">multi-bind</a></li>
+                    <li><a href="">@counter</a></li>
+                    <li><a href="">Anti-boom</a></li>
+                </ul>
+            </ol>
+        </div>
+    </nav>
+    <main>
+        <h3>Some basic about processor</h3><br>
+
+        <ol>
+            <li>
+                A processors start at line 0 (line is used instead of instruction)
+            </li><br>
+
+            <li>
+                M-log special @ variables:
+            </li><br>
+                <ul>
+                    <li>
+                        <strong>@thisx / @thisy</strong><br>
+                        // cooordinated x / y of this proccesor
+                    </li><br>
+
+                    <li>
+                        <strong>@this</strong><br>
+                        // object of proccesor
+                    </li><br>
+
+                    <li>
+                        <strong>@unit</strong><br>
+                        // variable to access a unit returned from using 'bind'. Can be used as object to sensor data from the unit.
+                    </li><br>
+
+                    <li>
+                        <strong>@counter</strong><br>
+                        // indicates the line of code currently being performed. It's a very interesting variable, explained further <a href="">here</a>.
+                    </li><br>
+
+                    <li>
+                        <strong>@mapw / @maph</strong><br>
+                         // map weight / height in tiles
+                    </li><br>
+
+                    <li>
+                        <strong>@links</strong><br>
+                        // total number of blocks linked (connected) to the processor. To link a block, select the processor and then select a different block. It will have a purple diamond and a name to indicate that it is linked.
+                    </li><br>
+
+                    <li>
+                        <strong>@ipt</strong><br>
+                        // instruction per tick (number of lines of code performed each tick. A tick is similar to FPS for most purposes)
+                    </li><br>
+                </ul>
+
+            <li>
+                When code passes the last line, it will start again from line 0
+            </li><br>
+
+            <li>
+                Each processor type has different processing speeds (you can read this from @ipt):
+                micro processor(2ipt or 120 lines/sec at 60 FPS) , logic processor (480 / sec) , hyper proccesor ( 1500 / sec ) 
+            </li><br>
+
+            <li>
+                A memory cell can store a limited amount of numbers (double or float32). A memory cell stores 64 numbers, a memory bank 512 numbers. 
+            </li><br>
+
+            <li>
+                All commands and words are case sensitive e.g. '@firstItem ', not '@firstitem ' 
+            </li><br>
+
+            <li>
+                Most comparisons are coercive - 'true' and 'false' will also be equal to 1 and 0 respectively. Be careful, null is also coerced to 0. To avoid this, use the strict equals comparison, ===. 
+            </li><br>
+
+            <li>
+                If you write code outside Mindustry (e.g. on site or in VScode ) you can use jump labels (absolute) instead of jump numbers (relative) to avoid maintaining jumps<br>
+                Jump number method:<br>
+                (note that the code examples are written as you would see the code if you exported it from Mindustry. You can import them into Mindustry too)<br><br>
+                <strong>
+                    print "hello"<br>
+                    jump 0 always 0 0<br>
+                </strong><br>
+                you need write a number of line where you want jump, in big codes its problem, and if you delete / add line you need change number<br>
+                Jump label method:<br><br>
+                <strong>
+                    jump labe always 0 0<br>
+                    end<br>
+                    labe:<br>
+                    print "hello"<br>
+                </strong><br>
+                You just need name of label and : , the 'labe:' does not count as a line, and when you paste the code in the game, it will disappear and the jump will be connected!<br>
+            </li>
+        </ol>
+
+        <br><hr><br>
+
+        <h3>We need know all of the processor commands, I'll try to explain all commands clearly, but DM me if you have any suggestions.</h3><br>
+
+        <h3>Input and Output</h3>
+        <h4>We have 4 commands of this category: read , write , draw , print</h4>
+
+        <br><hr><br>
+
+        <p><span>Command ' read ' </span><br> return a variable from mem-cell block</p>
+        <p>syntax of read: <strong>read var cell1 num</strong></p>
+        <p>' var ' is the name of the variable to store the output from the cell, 'cell1' is a linked mem-cell (although it can be linked in other ways), ' num ' is a 0-based index in mem-cell where to read the value from.</p>
+        <h3>Example:</h3><br>
+        <h5>
+            <strong>read aCountOFunits cell1 0</strong><br>
+             // so we created a variable 'aCountOfUnits' then we tell the processor from which cell to find a value, and index of the cell for the specific number.
+        </h5>
+
+        <br><hr><br>
+
+        <p><span>Command ' write ' </span><br> write a any variable to mem-cell, but it can write only numbers, variable values ( in number or 1 / 0 ( true / false )!</p>
+        <p>syntax of write: <strong>write var cell1 num</strong></p>
+        <p>' var ' is the name of the variable where a number is stored. It can also be a static number. ' cell1 ' its a linked mem-cell, ' num ' is a 0-based index in mem-cell where to write the value.</p>
+        <h3>Example:</h3><br>
+        <h5>
+            <strong>write aCountOFunits cell1 0</strong><br>
+             // so we write a variable 'aCountOfUnits' at index 0 in mem-cell
+        </h5><br>
+
+        <p>Now lets connect a read and write commands in code!</p>
+        <h5>
+            proccessor 1:<br>
+            <strong>
+                set aCountOFunits 5<br>
+                write aCountOFunits cell1 3<br>
+            </strong>
+            proccessor 2:<br>
+            <strong>
+                read count cell1 3<br>
+            </strong>
+        </h5>
+        <p>Processor 1 sets a value to 'aCountOfUnits' variable and then stores this to mem-cell at index 3. Processor 2 reads a 'aCountOfUnits' at index 3, but stores it a variable named 'count'.</p>
+
+        <br><hr><br>
+        
+        <p><span>Command ' draw ' </span> draw lines, shapes and images to display in a logic display. This is a detailed topic and will be completed at a later date.<br></p>
+        <p>syntax's of draw:<br>
+            <ul id="ul">
+                <li><strong>draw clear 0 0 0</strong></li>
+                <li><strong>draw color 0 0 0 0</strong></li>
+                <li><strong>draw col 0</strong></li>
+                <li><strong>draw stroke 0</strong></li>
+                <li><strong>draw line 0 0 0 0</strong></li>
+                <li><strong>draw rect 0 0 0 0</strong></li>
+                <li><strong>draw lineRect 0 0 0 0</strong></li>
+                <li><strong>draw poly 0 0 0 0 0</strong></li>
+                <li><strong>draw triangle 0 0 0 0 0 0</strong></li>
+                <li><strong>draw image 0 0 0</strong></li>
+            </ul><br>
+        </p>
+        <p>
+            Extend of 0 you need write a name's / coordinates / icons and any information for draw any what you want.
+        </p>
+
+        <br><hr><br>
+
+        <p><span>Command ' print ' </span><br>stores (appends) a string to be sent to a message block. You need to use print flush to send the stored print string to a message block.</p>
+        <p>A syntax of print: <strong>print ""</strong></p>
+        <p>for write text you need add any text in " " , if you want write a value of any variable you need write it name and without " </p>
+        <h3>Example:</h3><br>
+        <h5>
+            <strong>print "count"</strong><br>
+             // will write a text in " " ( count )<br>
+             <strong>print count</strong><br>
+             // will write a value of variable " count "<br><br>
+             <strong>print "\n"</strong><br>
+             // will print some text from new line<br>
+             <strong>print "[red]red , [#669980]some color , []white"</strong><br>
+             // you can write colored text by simple names of color [red] or by #hex colors, [] deleting color
+        </h5><br>
+
+        <br><hr><br>
+        
+
+
+
+    </main>
+</body>
+
+</html>

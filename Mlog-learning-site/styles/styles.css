@@ -1,0 +1,85 @@
+body {
+  background-color: rgb(39, 39, 39);
+  border: hidden 0.5px cyan;
+  padding: 2px 2px 2px 2px;
+  margin: 2px 2px 2px 2px;
+}
+
+p , main ol li {
+  color: rgb(216, 216, 216);
+}
+
+header h1 , main h3 , main h4 {
+  color: rgb(216, 216, 216);
+  text-align: center;
+}
+
+main ol ul {
+  color: azure;
+}
+
+main ol ul strong , main ol li strong , p strong , main ul li strong {
+  color: goldenrod;
+}
+
+main , header {
+  content: none;
+  height: 100%;
+  width: 80%;
+  padding: 0 auto;
+  border: hidden 0.5px red;
+  margin: 0px 0px 0px 17%;
+}
+
+nav {
+  background-color: rgb(36, 36, 36);
+  height: 100%;
+  width: 15%;
+  padding: 1px 1px 1px 1px;
+  border: hidden 0.5px blue;
+  margin: 0px 0px 0px 0px;
+  overflow-x: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+nav div , nav div #link {
+  color: aliceblue;
+  text-align: left;
+  font-size: small;
+}
+
+nav div a {
+  text-align: center;
+}
+
+main h5 strong , #ul {
+  font-weight: 400;
+  font-size: small;
+  color: orange;
+  border: 0.5px;
+  margin: 0 auto;
+  padding: 1px 1px 1px 1px;
+  background-color: rgb(48, 48, 48);
+  height: 100%;
+  width: 50%;
+}
+
+main h5 {
+  font-weight: 400;
+  font-size: small;
+  color: rgb(0, 183, 255);
+  border: 0.5px;
+  margin: 0 auto;
+  padding: 1px 1px 1px 1px;
+  background-color: rgb(48, 48, 48);
+  height: 100%;
+  width: 50%;
+
+}
+
+main p span {
+  color: rgb(2, 255, 2);
+  font-size: large;
+}
