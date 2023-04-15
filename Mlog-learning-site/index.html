@@ -18,67 +18,70 @@
         <div id="link">
             <h3>Navigation:</h3>
             <ol>
-                <li><a href="" id="link">Input And Output</a></li><br>
+                <li><a href="#i0" id="link">Input And Output</a></li><br>
                 <ul>
-                    <li><a href="">read</a></li>
-                    <li><a href="">write</a></li>
-                    <li><a href="">draw</a></li>
-                    <li><a href="">print</a></li>
+                    <li><a href="#i1">read</a></li>
+                    <li><a href="#i2">write</a></li>
+                    <li><a href="#i3">draw</a></li>
+                    <li><a href="#i4">print</a></li>
                 </ul>
 
                 <br><hr><br>
 
-                <li><a href="" id="link">Block Control</a></li><br>
+                <li><a href="#b0" id="link">Block Control</a></li><br>
                 <ul>
-                    <li><a href="">drawflush</a></li>
-                    <li><a href="">printflush</a></li>
-                    <li><a href="">getlink</a></li>
-                    <li><a href="">control</a></li>
-                    <li><a href="">radar</a></li>
-                    <li><a href="">sensor</a></li>
+                    <li><a href="#b1">drawflush</a></li>
+                    <li><a href="#b2">printflush</a></li>
+                    <li><a href="#b3">getlink</a></li>
+                    <li><a href="#b4">control</a></li>
+                    <li><a href="#b5">radar</a></li>
+                    <li><a href="#b6">sensor</a></li>
                 </ul>    
 
                 <br><hr><br>
 
-                <li><a href="" id="link">Operations</a></li><br>
+                <li><a href="#o0" id="link">Operations</a></li><br>
                 <ul>
-                    <li><a href="">set</a></li>
-                    <li><a href="">operation</a></li>
-                    <li><a href="">lookup</a></li>
-                    <li><a href="">pack color</a></li>
+                    <li><a href="#o1">set</a></li>
+                    <li><a href="#o2">operation</a></li>
+                    <li><a href="#o3">lookup</a></li>
+                    <li><a href="#o4">pack color</a></li>
                 </ul>
 
                 <br><hr><br>
 
-                <li><a href="" id="link">Flow Control</a></li><br>
+                <li><a href="#f0" id="link">Flow Control</a></li><br>
                 <ul>
-                    <li><a href="">wait</a></li>
-                    <li><a href="">stop</a></li>
-                    <li><a href="">end</a></li>
-                    <li><a href="">jump</a></li>
+                    <li><a href="#f1">wait</a></li>
+                    <li><a href="#f2">stop</a></li>
+                    <li><a href="#f3">end</a></li>
+                    <li><a href="#f4">jump</a></li>
                 </ul>
 
                 <br><hr><br>
 
-                <li><a href="" id="link">Unit Control</a></li><br>
+                <li><a href="#u0" id="link">Unit Control</a></li><br>
                 <ul>
-                    <li><a href="">ubind</a></li>
-                    <li><a href="">ucontrol</a></li>
-                    <li><a href="">uradar</a></li>
-                    <li><a href="">ulocate</a></li>
+                    <li><a href="#u1">ubind</a></li>
+                    <li><a href="#u2">ucontrol</a></li>
+                    <li><a href="#u3">uradar</a></li>
+                    <li><a href="#u4">ulocate</a></li>
                 </ul>
                 
                 <br><hr><br>
 
-                <li><a href="" id="link">Code Examples</a></li><br>
+                <li><a href="#c0" id="link">Code Examples</a></li><br>
                 <ul>
-                    <li><a href="">multi-bind</a></li>
-                    <li><a href="">@counter</a></li>
-                    <li><a href="">Anti-boom</a></li>
+                    <li><a href="#c1">Multi-bind</a></li>
+                    <li><a href="#c2">@counter</a></li>
+                    <li><a href="#c3">Anti-boom</a></li>
+                    <li><a href="#c4">Transport</a></li>
+                    <li><a href="#c5">Mining</a></li>
                 </ul>
             </ol>
         </div>
     </nav>
+
     <main>
         <h3>Some basic about processor</h3><br>
 
@@ -172,12 +175,12 @@
 
         <h3>We need know all of the processor commands, I'll try to explain all commands clearly, but DM me if you have any suggestions.</h3><br>
 
-        <h3>Input and Output</h3>
+        <h3 id="i0">Input and Output</h3>
         <h4>We have 4 commands of this category: read , write , draw , print</h4>
 
         <br><hr><br>
 
-        <p><span>Command ' read ' </span><br> return a variable from mem-cell block</p>
+        <p id="i1"><span>Command ' read ' </span><br> return a variable from mem-cell block</p>
         <p>syntax of read: <strong>read var cell1 num</strong></p>
         <p>' var ' is the name of the variable to store the output from the cell, 'cell1' is a linked mem-cell (although it can be linked in other ways), ' num ' is a 0-based index in mem-cell where to read the value from.</p>
         <h3>Example:</h3><br>
@@ -188,7 +191,7 @@
 
         <br><hr><br>
 
-        <p><span>Command ' write ' </span><br> write a any variable to mem-cell, but it can write only numbers, variable values ( in number or 1 / 0 ( true / false )!</p>
+        <p id="i2"><span>Command ' write ' </span><br> write a any variable to mem-cell, but it can write only numbers, variable values ( in number or 1 / 0 ( true / false )!</p>
         <p>syntax of write: <strong>write var cell1 num</strong></p>
         <p>' var ' is the name of the variable where a number is stored. It can also be a static number. ' cell1 ' its a linked mem-cell, ' num ' is a 0-based index in mem-cell where to write the value.</p>
         <h3>Example:</h3><br>
@@ -206,14 +209,14 @@
             </strong>
             proccessor 2:<br>
             <strong>
-                read count cell1 3<br>
+                read count cell1 3
             </strong>
         </h5>
         <p>Processor 1 sets a value to 'aCountOfUnits' variable and then stores this to mem-cell at index 3. Processor 2 reads a 'aCountOfUnits' at index 3, but stores it a variable named 'count'.</p>
 
         <br><hr><br>
         
-        <p><span>Command ' draw ' </span> draw lines, shapes and images to display in a logic display. This is a detailed topic and will be completed at a later date.<br></p>
+        <p id="i3"><span>Command ' draw ' </span> draw lines, shapes and images to display in a logic display. This is a detailed topic and will be completed at a later date.<br></p>
         <p>syntax's of draw:<br>
             <ul id="ul">
                 <li><strong>draw clear 0 0 0</strong></li>
@@ -234,7 +237,7 @@
 
         <br><hr><br>
 
-        <p><span>Command ' print ' </span><br>stores (appends) a string to be sent to a message block. You need to use print flush to send the stored print string to a message block.</p>
+        <p id="i4"><span>Command ' print ' </span><br>stores (appends) a string to be sent to a message block. You need to use print flush to send the stored print string to a message block.</p>
         <p>A syntax of print: <strong>print ""</strong></p>
         <p>for write text you need add any text in " " , if you want write a value of any variable you need write it name and without " </p>
         <h3>Example:</h3><br>
@@ -246,15 +249,1277 @@
              <strong>print "\n"</strong><br>
              // will print some text from new line<br>
              <strong>print "[red]red , [#669980]some color , []white"</strong><br>
-             // you can write colored text by simple names of color [red] or by #hex colors, [] deleting color
-        </h5><br>
+             // you can print colored text by simple names of color [red] or by #hex colors, [] deleting color<br>
+             // you can print icons from the game by shift-clicking the icon in the core-database to copy it.
+        </h5>
 
         <br><hr><br>
         
+        <h3 id="b0">Block Control</h3>
+        <h4>We have 6 commands of this category: drawflush , printflush , getlink , control , radar , sensor</h4>
 
+        <br><hr><br>
 
+        <p id="b1"><span>Command ' drawflush '</span><br> need to flush a commands 'draw' to the display</p>
+        <p>syntax of draw flush: <strong>drawflush display1</strong></p>
+        <p>
+            Send draw commands for example to display5 you need write 
+            <strong>drawflush display5 </strong>
+            and draw commands will be sended to display5
+        </p>
+        <h3>Example:</h3><br>
+        <h5>
+            <strong>
+                draw line 2 4 8 4 0 0<br>
+                drawflush display1<br>
+            </strong>
+            // will draw a line in sended coordinates of display, and sended it to display1
+        </h5>
 
+        <br><hr><br>
+
+        <p id="b2"><span>Command ' printflush message1 '</span><br>need to flush the stored print string to a message block</p>
+        <p>syntax of print flush: <strong>printflush message1</strong></p>
+        <p>
+            For send print commands for example to message5 you need write 
+            <strong>printflush message5 </strong>
+            and print commands will be sended to message5
+        </p>
+        <h3>Example:</h3><br>
+        <h5>
+            <strong>
+                print "value1:"<br>
+                print v1<br>
+                printflush message1<br>
+                print "value2:"<br>
+                print v2<br>
+                printflush messege2<br>
+            </strong>
+         // this code will be send a value1: ( a value of variable ' v1 ') to message1, and value2: ( a value of variable ' v2 ') to message2<br> This also work with 'drawflush'<br>also you can write a icon from game   
+        </h5>
+
+        <br><hr><br>
+
+        <p id="b3"><span>Command ' getlink'</span><br>need to linked to blocks what you link to processor</p>
+        <p>syntax of getlink: <strong>getlink link num</strong></p>
+        <p>' link ' is a variable, ' num ' is index of the blocks linked to the processor in the order they are linked at the start of the code loop, num can be from 0 to the maximum number of blocks in the processors range.
+            <br>For example we have processor, and it linked to 5 blocks, and we need to know what block is it</p>
+        <h3>Example:</h3><br>
+        <h5>
+            <strong>
+                getlink linked 0<br>
+                print linked<br>
+                printflush message1
+            </strong>
+        </h5>
+        <p>this code will be check the 1st block linked to the processor and print it to a message block ( coerced to block type ). If, instead, we enter 3 for num, the linked block returned will be the 4th linked block. The returned variable is a block object and is extremely useful</p>
+
+        <br><hr><br>
+
+        <p id="b4"><span>Command ' control '</span><br>controls blocks available settings. Typically, enabled / disabled ( off / on ), configuration, shoot and shootp from turret and color.</p>
+        <p>A syntax's of control:<br>
+            <ul id="ul">
+                <li>
+                    <strong>control enabled block1 0</strong> // enabling a block
+                </li>
+
+                <li>
+                    <strong>control shoot block1 0 0 0 0</strong> // control a turret to shoot to coordinates
+                </li>
+
+                <li>
+                    <strong>control shootp block1 0 0</strong> // control a turret toshoot at enemy in it radius
+                </li>
+
+                <li>
+                    <strong>control config block1 0</strong> // configurating blocks to something
+                </li>
+
+                <li>
+                    <strong>control color block1 0</strong> // setting color for illyminator?.. very useless..
+                </li>
+            </ul>
+        </p><br>
+
+        <p><strong>control enabled block slct</strong><br>
+            ' block ' is a block object like reactor1 or returned getlink variable, ' slct ' you write 0 / 1, true / false. ' false ' or 0 will disable this block (if you have block status enabled in settings the diamond will turn solid purple), ' true ' or 1 will enable this block.
+            <br>Example:
+        </p>
+        <h5>
+            <strong>
+                getlink link 2<br>
+                control enabled link 0<br>
+            </strong>
+         // this code will disable the 3rd block linked to the processor    
+        </h5><br>
+
+        <p><strong>control shoot block x y sh</strong><br>
+            ' block ' is a block object like turret1 or returned getlink variable, ' x ' and ' y ' are coordinates where the block should shoot, ' sh ' is the order to shoot or not shoot, set 1 to shoot and 0 to stop shooting. This is remembered and must shooting must be turned off manually
+            <br>Example:
+        </p>
+        <h5>
+            <strong>control shoot foreshadow1 100 100 1</strong><br>
+             // foreshadow1, the turret linked to the processor, will shoot to coordinates 100,100. Now i will be show a harder example:<br>
+            <strong>
+                getlink block 1<br>
+                sensor x @x block<br>
+                sensor y @y block<br>
+                control shoot hail1 x y 1<br>
+            </strong>
+             // Yeah, we haven't learned the 'sensor' command yet, but these 2 commands simply check the x and y coordinates in the block returned by getlink. Important, first we need to link the processor to a hail and then to link any other block. getlink returns the second block, then sensor returns the coordinates and hail will shoot at the block!
+        </h5><br>
+
+        <p><strong>control shootp block unit sh</strong><br>
+            You already know what ' block ' and ' sh ' mean from the shoot command. ' unit ' is a unit object returned from the radar / uradar commands. This is new, so I will show an example with it
+            <br>Example:
+        </p>
+        <h5>
+            <strong>
+                getlink link 0<br>
+                radar enemy any any distance link 1 varE<br>
+                control shootp link varE 1<br>
+
+            </strong>
+         // Yeah maybe you don't yet understand what radar does, but simply: it searches for a unit that is a combination of enemy / ally / player and any any any around the turret and returns the unit object as a variable if it found, so we can shoot at the unit from the linked turret.
+        </h5><br>
+
+        <p><strong>control config block type</strong><br>
+            ' type ' is to what you want configure the block to, e.g. @copper for sorters / unloaders or @flare for an air-factory.
+            <br>Example:
+        </p>
+        <h5>
+            <strong>control config sorter1 @lead</strong><br>
+            // configure a linked sorter to lead<br>
+            <strong>control config factory1 @mono</strong><br>
+            // configure a linked air factory to mono
+        </h5><br>
+
+        <p>
+            <strong>control color illuminator1 num</strong><br>
+            Seriously, idk why you might want to use this to alter illuminators. It's a pretty pointless command. You link the illuminator and write any number and it will display some color (weakly, best seen at night time). Or you can reduce the number of commands and use 
+            <strong>packcolor result 0 0 0 0</strong>
+            . Color is input as four different channels RGB and Alpha with values from 0-1. Colors can also be input as RGB hex.
+        </p>
+
+        <br><hr><br>
+
+        <p id="b5"><span>Command ' radar '</span><br>search for units around turret. There are many inputs, good luck understanding it!</p>
+        <p><strong>radar enemy any any distance turret 1 result</strong><br>
+            syntax of selecting unit 'enemy any any' allows up to 3 filters to narrow search results
+
+            <ul id="ul">
+                <li>
+                    <strong>any</strong> // any unit
+                </li>
+
+                <li>
+                    <strong>enemy</strong> // any enemy unit
+                </li>
+
+                <li>
+                    <strong>ally</strong> // any ally unit
+                </li>
+
+                <li>
+                    <strong>player</strong> // player
+                </li>
+
+                <li>
+                    <strong>attacker</strong> // any unit with weapon
+                </li>
+
+                <li>
+                    <strong>flying</strong> // any flying unit
+                </li>
+
+                <li>
+                    <strong>ground</strong> // any ground unit
+                </li>
+
+                <li>
+                    <strong>boss</strong> // any unit with boss effect
+                </li>
+            </ul><br>
+        </p>
+            <p>You can select 3 filters to narrow the search for the unit you want what unit you want. For example: enemy flying any will be search for an enemy flying units</p>
+        <br>
+
+        <p>Also we have 5 sorting options:
+            <ul id="ul">
+                <li>
+                    <strong>distance</strong> // distance to turret
+                </li>
+
+                <li>
+                    <strong>shield</strong> // unit with shield
+                </li>
+
+                <li>
+                    <strong>health</strong> // unit HP
+                </li>
+
+                <li>
+                    <strong>maxHealth</strong> // unit maxHP
+                </li>
+
+                <li>
+                    <strong>armor</strong> // unit with armor
+                </li>
+            </ul>
+        </p>
+        <p>Now I'll explain health and max Health, for example we have 2 unit in turret radius a quasar with 150HP ( a full HP quasar is 640 ) and mega with 400 HP ( a full HP of mega: 460 )
+            if we select a ' maxHealth ' a turret will be looking at quasar, if ' health ' turret will be loking at mega, because mega have more HP then quasar at this moment, but a full HP more in quasar 
+        </p>
+        <br>
+        <p>
+            A number in ' radar enemy any any distance turret <strong>1</strong> result ' is sort order of the sorting option. Selecting unit, for example we also have two units, turret search by distance, a quasar closer to the turret than a mega, so turret return the quasar, however, if you write 2 a turret will return the mega. You cannot search units in the middle of the sort options.
+        </p>
+
+        <p>OK, now we can try some code with this command:<br></p>
+        <h5>
+            <strong>
+                radar enemy flying any maxHealth hail1 1 Result<br>
+                print Result<br>
+                printflush message1
+            </strong>
+        </h5><br>
+        <p>This code will display the name of the enemy flying unit with maxHealth within the range of hail1 to message1</p>
+
+        <br><hr><br>
+
+        <p id="b6"><span>Command 'sensor' </span><br>returns information about a block or unit</p>
+        <p>There are 3 classes of information: items, fluids and parameters. These can be accessed by tapping the pencil icon next to the info input <br>
+            A syntax of sensor: <strong>sensor var block @info</strong><br>
+            We sensor the @info in block/unit and return the result to a variable<br>
+            Now I will write the fixed values you can sensor
+        </p><br>
+           <h3>Items and Fluids:</h3>
+        <p>
+            <ul id="ul">
+                <li>
+                    <strong>sensor var block @copper</strong> // check copper in ' block '
+                </li>
+
+                <li>
+                    <strong>sensor var block @lead'</strong> // check lead in ' block 
+                </li>
+
+                <li>
+                    <strong>sensor var block @metaglass</strong> // check metaglass in ' block '
+                </li>
+
+                <li>
+                    <strong>sensor var block @graphite</strong> //check graphite in ' block ' 
+                </li>
+
+                <li>
+                    <strong>sensor var block @sand</strong> // check sand in ' block '
+                </li>
+
+                <li>
+                    <strong>sensor var block @coal</strong> // check coal in ' block '
+                </li>
+
+                <li>
+                    <strong>sensor var block @titanium</strong> // check titanium in ' block '
+                </li>
+
+                <li>
+                    <strong>sensor var block @thorium</strong> // check thorium in ' block '
+                </li>
+
+                <li>
+                    <strong>sensor var block @scrap</strong> // check scrap in ' block '
+                </li>
+
+                <li>
+                    <strong>sensor var block @silicon</strong> // check silicon in ' block '
+                </li>
+
+                <li>
+                    <strong>sensor var block @plastanium</strong> // check plastanium in ' block '
+                </li>
+
+                <li>
+                    <strong>sensor var block @plase-fabric</strong> // check phase fabric in ' block '
+                </li>
+
+                <li>
+                    <strong>sensor var block @surge-alloy</strong> //check surge alloy in ' block ' 
+                </li>
+
+                <li>
+                    <strong>sensor var block @spore-pod</strong> // check spore pods in ' block '
+                </li>
+
+                <li>
+                    <strong>sensor var block @blast-compound</strong> // check blast compound in ' block '
+                </li>
+
+                <li>
+                    <strong>sensor var block @pyratite</strong> // check pyratite in ' block '
+                </li>
+
+                <li>
+                    <strong>sensor var block @water</strong> // check water in ' block '
+                </li>
+
+                <li>
+                    <strong>sensor var block @cryofluid</strong> // check cryo fluid in ' block '
+                </li>
+
+                <li>
+                    <strong>sensor var block @slag</strong> // check slag in ' block '
+                </li>
+    
+                <li>
+                    <strong>sensor var block @oil</strong> // check oil in ' block '
+                </li>
+            </ul><br>
+        </p>
+        <h3>@parameters</h3>
+        <p>
+            <ul id="ul">
+                <li>
+                    <strong>@totalItem</strong> // count of all items in block or unit. For a container this will sum all different items.
+                </li>
+
+                <li>
+                    <strong>@firstItem</strong> // name of item in block or unit. Unit can only hold one item type so this can be used to determine which item they are holding. For containers this returns the first item found in order (same order as items shown in a sorter).
+                </li>
+
+                <li>
+                    <strong>@totalLiquid</strong> // count of liquid in block
+                </li>
+
+                <li>
+                    <strong>@totalPower</strong> // power in block (output: 1 / 0 )
+                </li>
+
+                <li>
+                    <strong>@itemCapacity</strong> // item capacity in block or unit. For containers / vaults this is for a single item type. For conateiners / vaults connected to the core this is for the vault alone so you can have a higher totalItem than a container / vault can hold(!)
+                </li>
+
+                <li>
+                    <strong>@liquidCapacity</strong> // liquid capacity in block
+                </li>
+
+                <li>
+                    <strong>@powerNetStored</strong> // stored power in battery (Here, net means like a spider web, not related to gross)
+                </li>
+
+                <li>
+                    <strong>@powerNetCapacity</strong> // max power what can stored in battery
+                </li>
+
+                <li>
+                    <strong>@powerNetIn</strong> //  a + power production
+                </li>
+
+                <li>
+                    <strong>@powerNetOut</strong> // a - power used
+                </li>
+
+                <li>
+                    <strong>@ammo</strong> // count ammo in turret or unit. You cannot sensor item type in a turret.
+                </li>
+
+                <li>
+                    <strong>@ammoCapacity</strong> //  max count ammo what can stored in turret or unit
+                </li>
+                
+                <li>
+                    <strong>@health</strong> //  health in block or unit
+                </li>
+
+                <li>
+                    <strong>@maxHealth</strong> // max health in block or unit
+                </li>
+                
+                <li>
+                    <strong>@heat</strong> // heat in reactor, shield etc
+                </li>
+
+                <li>
+                    <strong>@efficiency</strong> // efficiency of work in block (output: 0 / 1 )
+                </li>
+
+                <li>
+                    <strong>@progress</strong> // progress of block ( unit factory etc ) 
+                </li>
+
+                <li>
+                    <strong>@timescale</strong> // timescale in block (overdrive rate)
+                </li>
+
+                <li>
+                    <strong>@rotation</strong> // rotation of placed block for contstruction or a moving block like a turret or a unit
+                </li>
+
+                <li>
+                    <strong>@x</strong> // x coordinate of block or unit
+                </li>
+
+                <li>
+                    <strong>@y</strong> // y coordinate of block or unit
+                </li>
+
+                <li>
+                    <strong>@shootX</strong> //  x coordinate of shoot ( turret / unit ) or mouse location for the player unit.
+                </li>
+
+                <li>
+                    <strong>@shootY</strong> // y coordinate of shoot ( turret / unit ) or mouse location for the core unit.
+                </li>
+
+                <li>
+                    <strong>@size</strong> // size of unit / block
+                </li>
+
+                <li>
+                    <strong>@dead</strong> // dead in unit (output: 0 / 1 ). Means if a unit is available to control. Units on payload conveyors or in factories are not on the map and return dead=1.
+                </li>
+
+                <li>
+                    <strong>@range</strong> // range of shoot in block / unit. Not the limit for some operations.
+                </li>
+
+                <li>
+                    <strong>@shooting</strong> //  shooting in turret / unit (output: 0 / 1 ) or mouse down for the player unit.
+                </li>
+
+                <li>
+                    <strong>@boosting</strong> // boosting/flying in unit ( nova tree units ) (output: 0 / 1 )
+                </li>
+
+                <li>
+                    <strong>@mineX</strong> // x coordinate of mining ( unit )
+                </li>
+
+                <li>
+                    <strong>@mineY</strong> //  y coordinate of mining ( unit )
+                </li>
+
+                <li>
+                    <strong>@mine</strong> // mining status (output: 0 / 1 )
+                </li>
+
+                <li>
+                    <strong>@speed</strong> // max speed in unit
+                </li>
+
+                <li>
+                    <strong>@team</strong> // team of the block or unit
+                </li>
+
+                <li>
+                    <strong>@type</strong> //  type of something
+                </li>
+
+                <li>
+                    <strong>@flag</strong> // flag in unit
+                </li>
+
+                <li>
+                    <strong>@controlled</strong> // index of control of unit by self (0) / processor (1) / player (2) / RTS commands (3).
+                </li>
+
+                <li>
+                    <strong>@controller</strong> // controller object of unit  by unit / processor / player
+                </li>
+
+                <li>
+                    <strong>@name</strong> //  name in unit ( player )
+                </li>
+
+                <li>
+                    <strong>@payLoadCount</strong> // count of unit / block in mega - oct units
+                </li>
+
+                <li>
+                    <strong>@payLoadType</strong> // name of last block / unit in mega - oct units 
+                </li>
+
+                <li>
+                    <strong>@enabled</strong> //  enabled in block (output: 0 / 1 )
+                </li>
+
+                <li>
+                    <strong>@config</strong> // config in block ( flare in air-factory / graphite in sorter / etc )
+                </li>
+
+                <li>
+                    <strong>@color</strong> // color of illuminator.
+                </li>
+
+            </ul>
+        </p><br>
+        <p>That's all, now i will be show one little example:</p>
+        <p>
+            powerNetIn and powerNetOut. We can sensor power by using a processor, for this we need a node / battery or any block that is connected to power, we haven't learned about the ' operation ' command yet, but I will show an example with it ( simple a ' operation ' its math )
+        </p>
+        <h5>
+            <strong>
+                getlink link 0<br>
+                sensor p1 powerNetIn link<br>
+                sensor p2 powerNetOut link<br>
+                op sub p3 p1 p2<br>
+                print p3<br>
+                printflush message2
+            </strong>
+        </h5><br>
+        <p>We check a + and - power in linked block, then by op ( operation ) we +power(p1) -(sub) -power(p2) and get the resultant power at this moment (p3)</p>
+
+        <br><hr><br>
+
+        <h3 id="o0">Operations</h3><br>
+        <h4>We have 4 commands of this category: set , operation , lookup , pack color</h4>
+        
+        <br><hr><br>
+
+        <p id="o1"><span>Command 'set' </span><br>
+            create/change a variable with a value
+        </p>
+        <p>A syntax of set: <strong>set var 0</strong></p>
+        <p>Very simple command so I will write a example and that's all:</p>
+        <h5>
+            <strong>set p1 10</strong><br>
+            // we get a value(10) to variable ' p1 '
+        </h5>
+
+        <br><hr><br>
+
+        <p id="o2"><span></span>Command ' operation ' </span><br>
+            a very big command for math
+        </p>
+        <p>syntax of operation:  
+            <strong>op ? result a b</strong>
+            instead of ' ? ' we write one of the following commands: 
+        </p><br>
+
+        <p>
+            <ul id="ul">
+                <li>
+                    <strong>op add result a b </strong> // + ( add )
+                </li>
+
+                <li>
+                    <strong>op sub result a b </strong> // - ( sub )
+                </li>
+
+                <li>
+                    <strong>op mul result a b </strong> // * ( mul )
+                </li>
+
+                <li>
+                    <strong>op div result a b </strong> // / ( div )
+                </li>
+
+                <li>
+                    <strong>op idiv result a b </strong> // // ( integer division )
+                </li>
+
+                <li>
+                    <strong>op mod result a b </strong> // % ( modulus )
+                </li>
+
+                <li>
+                    <strong>op pow result a b </strong> // ^ ( pow )( power of / ** for programmers or Math.pow )
+                </li>
+
+                <li>
+                    <strong>op equal result a b </strong> // == ( equal )
+                </li>
+
+                <li>
+                    <strong>op notEqual result a b </strong> // not ( notEqual )( != for programmers )
+                </li>
+
+                <li>
+                    <strong>op land result a b </strong> // and ( and )
+                </li>
+
+                <li>
+                    <strong>op lessThan result a b </strong> // < ( lessThan )
+                </li>
+
+                <li>
+                    <strong>op lessThanEq result a b </strong> // <= ( lessThanEq ) 
+                </li>
+
+                <li>
+                    <strong>op greaterThan result a b </strong> // > ( lessThan )
+                </li>
+
+                <li>
+                    <strong>op greaterThanEq result a b </strong> // >= ( greaterThanEq )
+                </li>
+
+                <li>
+                    <strong>op strictEqual result a b </strong> // === ( strictEqual )
+                </li>
+
+                <li>
+                    <strong>op shl result a b </strong> // << ( <abbr title= 'bit shift left'>shl</abbr> )
+                </li>
+
+                <li>
+                    <strong>op shr result a b </strong> // >> ( <abbr title= 'bit shift right'>shr</abbr> )
+                </li>
+                
+                <li>
+                    <strong>op or result a b </strong> // or (or )
+                </li>
+
+                <li>
+                    <strong>op and result a b </strong> // b-and ( and )
+                </li>
+
+                <li>
+                    <strong>op xor result a b </strong> // xor ( xor )
+                </li>
+
+                <li>
+                    <strong>op not result a b </strong> // flip ( not )( 11 = ( -12 ))
+                </li>
+
+                <li>
+                    <strong>op max c a b </strong> // max ( max )( for programmers Math.max )
+                </li>
+
+                <li>
+                    <strong>op min result a b </strong> // min ( min )( for programmers Math.min )
+                </li>
+
+                <li>
+                    <strong>op angle result a b </strong> // angle ( angle )
+                </li>
+
+                <li>
+                    <strong>op len result a b </strong> // len ( len ) length of a vector of 2 lines at 90 degrees. Find the hypotenuse of a right-angled triangle.
+                </li>
+
+                <li>
+                    <strong>op noise result a b </strong> // noise ( noise )
+                </li>
+
+                <li>
+                    <strong>op abs result a b </strong> // abs ( abs )( for programmers Math.abs)( ( -10 ) = 10 )
+                </li>
+
+                <li>
+                    <strong>op log result a b </strong> // log ( log )( for programmers Math.log )
+                </li>
+
+                <li>
+                    <strong>op log10 result a b </strong> // log10 ( log10 )( for programmers Math.log10
+                </li>
+
+                <li>
+                    <strong>op floor result a b </strong> // floor ( floor )( for programmers Math.floor )( 10.5 = 10 )
+                </li>
+
+                <li>
+                    <strong>op ceil result a b </strong> // ceil ( ceil )( for programmers Math.ceil )( 10.5 = 11 )
+                </li>
+
+                <li>
+                    <strong>op sqrt result a b </strong> // sqrt ( sqrt )( for programmers Math.sqrt )( square root )
+                </li>
+
+                <li>
+                    <strong>op rand result a b </strong> // rand ( rand )( random number from 0 to ' a ' )
+                </li>
+
+                <li>
+                    <strong>op sin result a b </strong> // sin ( sin )( for programmers Math.sin ) in degrees
+                </li>
+
+                <li>
+                    <strong>op cos result a b </strong> // cos ( cos )( for programmers Math.cos )
+                </li>
+
+                <li>
+                    <strong>op tan result a b </strong> // tan ( tan )( for programmers Math.tan
+                </li>
+
+                <li>
+                    <strong>atan </strong> // inverse tan or arctan
+                </li>
+
+                <li>
+                    <strong>acos </strong> // inverse cos or arccos
+                </li>
+
+                <li>
+                    <strong>asin </strong> // inverse sin or arcsin
+                </li>
+            </ul>
+        </p>
+        
+        <br><hr><br>
+
+        <p id="o3"><span>Command 'lookup' </span><br>
+            very useful command
+        </p>
+        <p>Syntax of lookup
+            <ul id="ul">
+                <li><strong>lookup item result 0</strong></li>
+
+                <li><strong>lookup unit result 0</strong></li>
+
+                <li><strong>lookup block result 0</strong></li>
+
+                <li><strong>lookup liquid result 0</strong></li>
+            </ul>
+        </p><br>
+        <p>You can find a block / unit / resource by their ID/index, for example crawler unit ID = 10</p>
+        <h5>
+            <strong>lookup unit var 10</strong> // var will be = @crawler
+        </h5>
+
+        <br><hr><br>
+
+        <p id="o4"><span>Command pack color</span><br>
+        compactly store a color in a variable for use with illuminators or displays. Can be written to /read from a mem-cell. Does not display in the Vars tab correctly
+        </p>
+        <p>syntax:<br>
+            <strong>packcolor result 1 0 0 1</strong><br>
+            this is in RGBA format with values from 0-1. This colour will be solid red.
+        </p>
+        
+        <br><hr><br>
+
+        <h3 id="f0">Flow control</h3><br>
+        <h4>We have 4 command of this category: wait , stop , end and jump</h4>
+
+        <br><hr><br>
+
+        <p id="f1"><span>Command 'wait '</span><br>
+            need for pausing processor for some time ( in seconds )
+        </p>
+        <p>A syntax of wait: <strong>wait num</strong></p>
+        <p>' num ' time in seconds ( 0.5 , 10 , 26 , 1.06 , etc)</p>
+        <h5>
+            <strong>wait 5</strong> // willpausing processor for 5 second.
+        </h5>
+
+        <br><hr><br>
+
+        <p id="f2"><span>Command ' stop '</span><br>
+            just stop processor ( forever, until a manual change of the processor code
+        </p>
+        <p>A syntax of stop: <strong>stop</strong></p>
+
+        <br><hr><br>
+
+        <p id="f3"><span>Command ' end '</span><br>
+            return code to 0 line
+        </p>
+        <p>A syntax of end: <strong>end</strong></p>
+        
+        <br><hr><br>
+
+        <p id="f4"><span>Command ' jump '</span><br>
+            very needed command in an mlog processor ( can create loops )
+        </p>
+        <p>Syntax of jump:
+            <ul id="ul">
+                <li>
+                    <strong>jump num equal a b</strong> //  a == b
+                </li>
+
+                <li>
+                    <strong>jump num notEqual a b</strong> //  a not b ( for programers != )
+                </li>
+
+                <li>
+                    <strong>jump num lessThan a b</strong> // a < b
+                </li>
+
+                <li>
+                    <strong>jump num greaterThan a b</strong> // a > b
+                </li>
+
+                <li>
+                    <strong>jump num lessThanEq a b</strong> // a <= b
+                </li>
+
+                <li>
+                    <strong>jump num greaterThanEq a b</strong> // a >= b
+                </li>
+
+                <li>
+                    <strong>jump num strictEqual a b</strong> // a === b
+                </li>
+
+                <li>
+                    <strong>jump num always a b</strong> // always jump to (num)line
+                </li>
+            </ul>
+        </p>
+        <p>' num ' number of line where you want jump if a ? b</p>
+        <h3>Example:</h3><br>
+        <h5>
+            <strong>
+                sensor e door1 @enabled<br>
+                jump l1 equal e 0<br>
+                print "[green]open"<br>
+                jump l2 always 0 0<br>
+                l1:<br>
+                print "[#cc1]close"<br>
+                l2:<br>
+                printflush message1<br>
+            </strong>
+        </h5>
+        <p>Explanation - we need to link the processor to the door and message block. Then we sensor if the door is enabled and if enabled 1(open) it jumps to the print "open" command.</p>
+
+        <br><hr><br>
+
+        <h3 id="u0">Unit Control</h3><br>
+        <h4>We have 4 command of this category: ubind , ucontrol , uradar , ulocate</h4>
+
+        <br><hr><br>
+
+        <p id="u1"><span>Command 'ubind'</span><br>
+        binds a unit. Here, bind means to return the unit object for further processing. It does not take control of the unit.
+        </p>
+        <p>A syntax of ubind<strong>ubind @unit</strong></p>
+        <p>
+            Instead of @unit you write either a unit class like @flare etc or the variable of a unit you have already saved.<br>
+            When the processor executes this command with a unit class like @mono it finds the next unit in the list. When the command is executed again it finds the next unit in the list. Therefore, to loop more units, you call Ubind more times. It will eventually loop back to the same first unit again.<br>
+            If write code like This 
+            <strong>
+                ubind @flare<br>
+                ubind @flare<br>
+            </strong>
+            code will be bind a 2 different flares (if there are 2 or more flares available in the map)
+        </p><br>
+        <p>
+            Someone might ask "but how people write fast big code that works fast even if there are many units?" Its easy, its named ' multibind ' here example:
+        </p><br>
+        <h5>
+            <strong>op add flagger @thisx @thisy</strong> // makes a number which will repeat with a chance of 1 in a million<br>
+            <strong>ubind u1</strong> //  trying to bind unit with name ' u1 '<br>
+            <strong>sensor d1 @unit @dead</strong> //  checking dead in this unit<br>
+            <strong>jump code equal d1 0</strong> //  if dead = 0 code go to code: label line ( what unit need to do )<br>
+            <strong>ubind @flare</strong> // here code go if dead = 1<br>
+            <strong>sensor flag @unit @flag</strong> // checking flag in random unit, always checking flag in unit what you want bind! if you dont do it you can bind a unit what already work in another processor, codes where you dont check bind named = ' shit codding ' or ' attem ' , if someone named your code attem so you bad programmer :P<br>
+            <strong>jump 0 notEqual flag 0</strong> //  if flag in unit already not 0 it go to 0 line to repeat binding<br>
+            <strong>set u1 @unit</strong> //  if flag = 0 code go there and this unit will be named ' u1 <br>
+            <strong>ucontrol flag flagger</strong> // we dont learn it yet, but this just give unit his flag<br>
+            <strong>end</strong> // <br>
+            <strong>code:</strong> //  here code will be go if u1 = true, and you will can do with it what you want, if unit will br dead ( enemy kill him ) processor will be start searching new<br>
+        </h5>
+        <p>Click on button to copy this code without // instruction</p>
+        <p id="text1" hidden>
+            op add flagger @thisx @thisy
+            ubind u1
+            sensor d1 @unit @dead
+            jump code equal d1 0
+            ubind @flare
+            sensor flag @unit @flag
+            jump 0 notEqual flag 0
+            set u1 @unit
+            ucontrol flag flagger
+            end
+            code:
+        </p>
+        <button id="copy-button1" onclick="copyToClipboard1('text1')">Copy Text</button>
+        <p>For more information about binding unit using multibinding see additional code examples are the end of this guide.</p>
+
+        <br><hr><br>
+
+        <p id="u2"><span>Command ' ucontrol ' </span><br>
+        ontrol units. This will set the processor to the unit controller. Be careful not to control units already controlled by other processors.<br>
+        Syntaxs of ucontrol: 
+        </p><br>
+        <p>
+            <ul id="ul">
+                <li>
+                    <strong>ucontrol idle</strong> // just don't do anything
+                </li>
+
+                <li>
+                    <strong>ucontrol stop</strong> // stops all unit actions.
+                </li>
+                
+                <li>
+                    <strong>ucontrol move x y</strong> // unit move to ' x ' ' y ' coordinates
+                </li>
+                
+                <li>
+                    <strong>ucontrol approach x y r</strong> // unit move to  ' x ' ' y ' coordinates but around it radius( r )
+                </li>
+                
+                <li>
+                    <strong>ucontrol boost x</strong> // boosting for nova tree, ( 0 / 1 )
+                </li>
+                
+                <li>
+                    <strong>ucontrol target x y s</strong> // shoot on  ' x ' ' y ' coordinates ' s ' = shoots ( 1 / 0 )
+                </li>
+                
+                <li>
+                    <strong>ucontrol targetp u s</strong> // ' u ' = unit ( can be search by radar or uradar )' s ' = shoots ( 1 / 0 ). Accounts for projectile movement ( better aim )
+                </li>
+                
+                <li>
+                    <strong>ucontrol itemDrop to amount</strong> // ' to ' = what block/ core / some container1 etc, ' amount ' of resources
+                </li>
+                
+                <li>
+                    <strong>ucontrol itemTake from type amount</strong> // taking ' type ' of resource ( @copper ) from any ' block ' and ' amount '
+                </li>
+                
+                <li>
+                    <strong>ucontrol payDrop</strong> //  dropped units in unit ( mega - oct )
+                </li>
+                
+                <li>
+                    <strong>ucontrol payTake @unit / @block</strong> // take a unit or block ( first need go to coordinates of this unit / block, then use this command with 0 for blocks and 1 for units ). Check size of unit / block and carrier capacity. <strong>for pay take a block need write @nameOfBLock1 , without 1 this command will be don't work!</strong>
+                </li>
+                
+                <li>
+                    <strong>ucontrol payEnter</strong> // enter this unit in payload conveyor or reconstructor ( first go to the coordinate of this reconstructor / payload conveyor then check if unit <strong>within</strong> this coordinates if yes = ucontrol <strong>payEnter </strong> if you dont do this unit will be can enter in another reconstructor or payload conveyor )
+                </li>
+                
+                <li>
+                    <strong>ucontrol mine x y</strong> // mine ore at coordinates
+                </li>
+                
+                <li>
+                    <strong>ucontrol flag value</strong> //  flagging unit using numbers
+                </li>
+                
+                <li>
+                    <strong>ucontrol build x y block rotate config</strong> // <em>this command block on many servers</em>, ' x ' ' y ' of building, ' block ' ( @surge-wall ) ' rotate ' 0 1 2 3 , ' config ' ( if build sorter you can write @copper, and when unit builds a sorter it will be set to copper )
+                </li>
+                
+                <li>
+                    <strong>ucontrol getBlock x y type build floor</strong> // checking floor, type and block at x y coordinates ( unit need be within 27 tiles or their radius if larger to coordinates! )
+                </li>
+                
+                <li>
+                    <strong>ucontrol within x y radius out</strong> //  checking unit around radius, output 0 / 1 if unit out / in of radius
+                </li>
+                
+                <li>
+                    <strong>unbind</strong> // unbind units. Returns unit to default AI.
+                </li>
+            </ul>
+        </p><br>
+        <h3>a little example:</h3><br>
+        <h5>
+            <strong>
+                ubind @flare<br>
+                ucontrol within @thisx @thisy 1 out<br>
+                ucontrol move @thisx @thisy<br>
+                op add x @thisx 10<br>
+                ucontrol target x @thisx out
+            </strong>
+        </h5><br>
+        <p>All flares will be go to processor, when they already come to it, they will be start shoot on top </p>
+    
+        <br><hr><br>
+
+        <p id="u3"><span>Command ' uradar '</span><br>
+        checking units in unit radius
+        </p>
+        <p>A syntax of uradar: <strong>uradar enemy any any distance 0 1 result</strong></p>
+        <p>A the setting is the same as in the ' radar ' , link to settings <a href="">here</a></p>
+    
+        <br><hr><br>
+
+        <p id="u4"><span>Command ' ulocate </span><br>
+        can locate a building, ores etc by unit in the whole map outside of their normal range. But limited to the closest single object returned.
+
+A syntaxs of ulocate: 
+        </p>
+        <p>A syntaxs of ulocate: <strong>building core true @copper outx outy found build</strong></p>
+        <p>a syntaxs of ' building '
+            <ul id="ul">
+                <li>
+                    <strong>ore</strong> // searching ores
+                </li>
+
+                <li>
+                    <strong>ulocate ore core true @ore outx outy found building</strong> // @ore = write what ore you want find ( @copper ) , outx / outy = returned coordinates of it , found - 0 / 1 ( found ore or not )
+                </li><hr>
+
+                <li>
+                    <strong>building</strong> // searching buildings
+                </li>
+
+                <li>
+                    <strong>ulocate building core true @null outx outy found build</strong> // core = type of building what you search ( <em>can be only core , storage , generator , turret , factory , repair , battery , reactor </em>), true / false - searching enemy building or no, then just write @null, outx / outy = returned coordinates of it , found - 0 / 1 ( found or not ), build = name of this found building
+                </li><hr>
+
+                <li>
+                    <strong>spawn</strong> // searching enemy spawn
+                </li>
+
+                <li>
+                    <strong>ulocate spawn null null @null outx outy found build</strong> // output x y of spawn, found or not, build ( name )
+                </li><hr>
+
+                <li>
+                    <strong>damage</strong> // searching damaged block
+                </li>
+
+                <li>
+                    <strong>ulocate damaged null null @null outx outy found build</strong> // output x y of spawn, found or not, build ( name )
+                </li>
+            </ul>
+        </p>
+        <p>Command search only closest building / ore / spawn to unit </p>
+
+        <br><hr><br>
+
+        <h3 id="c0">Some examples of codes</h3><br>
+
+        <br><hr><br>
+
+        <h4 id="c1">A multibind for some units </h4><br><br>
+
+        <p>In this example can be setable a item , unit and count of unit ( 0 - 5 )</p>
+        <h5>
+            <strong>
+                set item @titanium<br>
+                set Utype @flare<br>
+                set MaxUnit 1<br>
+                op add flagger @thisx @thisy<br>
+                getlink link 0<br>
+                jump 81 notEqual Utype Type<br>
+                jump 83 notEqual MaxUnit Max<br>
+                op add num num 1<br>
+                jump 18 equal MaxUnit 1<br>
+                jump 17 equal MaxUnit 2<br>
+                jump 16 equal MaxUnit 3<br>
+                jump 15 equal MaxUnit 4<br>
+                jump 14 equal MaxUnit 5<br>
+                end<br>
+                jump 23 equal num 1<br>
+                jump 32 equal num 2<br>
+                jump 41 equal num 3<br>
+                jump 50 equal num 4<br>
+                jump 59 equal num 5<br>
+                jump 21 greaterThanEq num 6<br>
+                end<br>
+                set num 0<br>
+                end<br>
+                ubind u1<br>
+                sensor d1 @unit @dead<br>
+                jump 68 equal d1 0<br>
+                ubind Utype<br>
+                sensor f1 @unit @flag<br>
+                jump 26 notEqual f1 0<br>
+                set u1 @unit<br>
+                ucontrol flag flagger 0 0 0 0<br>
+                end<br>
+                ubind u2<br>
+                sensor d2 @unit @dead<br>
+                jump 68 equal d2 0<br>
+                ubind Utype<br>
+                sensor f2 @unit @flag<br>
+                jump 35 notEqual f2 0<br>
+                set u2 @unit<br>
+                ucontrol flag flagger 0 0 0 0<br>
+                end<br>
+                ubind u3<br>
+                sensor d3 @unit @dead<br>
+                jump 68 equal d3 0<br>
+                ubind Utype<br>
+                sensor f3 @unit @flag<br>
+                jump 44 notEqual f3 0<br>
+                set u3 @unit<br>
+                ucontrol flag flagger 0 0 0 0<br>
+                end<br>
+                ubind u4<br>
+                sensor d4 @unit @dead<br>
+                jump 68 equal d4 0<br>
+                ubind Utype<br>
+                sensor f4 @unit @flag<br>
+                jump 53 notEqual f4 0<br>
+                set u4 @unit<br>
+                ucontrol flag flagger 0 0 0 0<br>
+                end<br>
+                ubind u5<br>
+                sensor d5 @unit @dead<br>
+                jump 68 equal d5 0<br>
+                ubind Utype<br>
+                sensor f5 @unit @flag<br>
+                jump 62 notEqual f1 0<br>
+                set u5 @unit<br>
+                ucontrol flag flagger 0 0 0 0<br>
+                end<br>
+                sensor IC @unit @itemCapacity<br>
+                sensor FI @unit @firstItem<br>
+                sensor x link @x<br>
+                sensor y link @y<br>
+                ucontrol boost 1 0 0 0 0<br>
+                jump 78 equal FI @null<br>
+                ulocate building core false @copper xc yc found core<br>
+                ucontrol approach xc yc 5 0 0<br>
+                ucontrol itemDrop core IC 0 0 0<br>
+                end<br>
+                ucontrol approach x y 5 0 0<br>
+                ucontrol itemTake link item IC 0 0<br>
+                end<br>
+                set Type Utype<br>
+                jump 84 always x x<br>
+                set Max MaxUnit<br>
+                ubind u1<br>
+                ucontrol flag 0 0 0 0 0<br>
+                set u1 @null<br>
+                ubind u2<br>
+                ucontrol flag 0 0 0 0 0<br>
+                set u2 @null<br>
+                ubind u3<br>
+                ucontrol flag 0 0 0 0 0<br>
+                set u3 @null<br>
+                ubind u4<br>
+                ucontrol flag 0 0 0 0 0<br>
+                set u4 @null<br>
+                ubind u5<br>
+                ucontrol flag 0 0 0 0 0<br>
+                set u5 @null<br>
+            </strong>
+        </h5>
+        <p>this example get from mindustry so without labels, when unit dead processor searching new , if you change a unit type / count of unit processor unbind old units and then will bind new , the units carry items from core to linked block , code have a <strong>ucontrol boost 1</strong> so can be use a nova - vela units</p>
+
+        <br><hr><br>
+
+        <h4 id="c2">@counter</h4><br><br>
+
+        <p>@counter , very nice command, it can be you instead of jumps! if you do set @counter 5 a code will be always starts from 5th line!</p>
+        <h5>
+            <strong>
+                set @counter 3<br>
+                print "1"<br>
+                printflush message1<br>
+                print "0"<br>
+                printflush message1
+            </strong>
+        </h5>
+        <p>you need copy-paste this code to processor and link to message, then try writi 1 or 3 in set @counter 3 and check message, if you write 1 in message will be written o, if 3 in message will be 1! yes jump is more comfortable, but @counter very good if you need find something in alot of item:</p><br>
+        <h5>
+            <strong>
+                set item @copper<br>
+                set @counter 12<br>
+                end<br>
+                set item @lead<br>
+                set @counter 12<br>
+                end<br>
+                set item @metaglass<br>
+                set @counter 12<br>
+                end<br>
+                set item @graphite<br>
+                set @counter 12<br>
+                end<br>
+                control config sorter1 item<br>
+                op add num num 3<br>
+                set @counter num<br>
+                jump 0 lessThan num 8<br>
+                set num 0<br>
+                set @counter 0
+            </strong>
+        </h5>
+        <p>Yeah maybe example not very good (because we have lookup ) but if you understand this can be use in a lot of codes, just copy and test this!</p>
+
+        <br><hr><br>
+
+        <h4 id="c3">Anti-Boom</h4><br><br>
+        <p>A simple anti-boom for thorium reactors</p>
+        <h5>
+            <strong>
+                getlink link num<br>
+                sensor type link @type<br>
+                jump l2 notEqual type @thorium-reactor<br>
+                sensor cryo link @cryofluid<br>
+                jump l1 greaterThan cryo 1<br>
+                control enabled link 0<br>
+                jump l2 always x x<br>
+                l1:<br>
+                control enabled link 1<br>
+                l2:<br>
+                op add num num 1<br>
+                jump 0 lessThan num @links<br>
+                set num 0
+            </strong>
+        </h5>
+        <p>First we checking type of link = thorium-reactor or no, if link = thorium-reactor we checking cryofluid in it, if it grrater than 1 we ON it and num+ for checking next reactor, if cryofluid less than 1 reactor OFF, when num( getlink ) more than links it return to 0</p>
+
+        <br><hr><br>
+
+        <h4 id="c4">Trasport</h4><br><br>
+
+        <p>Now i will show you simple "resource carrier" for 1 unit</p>
+        <h5>
+            <strong>
+                set unit @flare<br>
+                set item @copper<br>
+                getlink link 0<br>
+                op add flagger @thisx @thisy ubind u1<br>
+                sensor d1 @unit @dead<br>
+                jump l1 equal d1 0<br>
+                ubind unit<br>
+                sensor flag @unit @flag<br>
+                jump 0 notEqual flag 0<br>
+                set u1 @unit<br>
+                ucontrol flag flagger<br>
+                end<br>
+                l1:<br>
+                sensor type @unit @type<br>
+                jump l2 notEqual type unit<br>
+                ulocate building core false @null x1 y1 found build<br>
+                sensor FI @unit @firstItem<br>
+                sensor IC @unit @itemCapacity<br>
+                jump l3 equal FI @null<br>
+                jump l4 notEqual FI item<br>
+                sensor x2 link @x<br>
+                sensor y2 link @y<br>
+                ucontrol approach x2 y2 5<br>
+                ucontrol itemDrop link 999<br>
+                end<br>
+                l4:<br>
+                ucontrol approach x1 y1 5<br>
+                ucontrol itemDrop build 999<br>
+                end<br>
+                l3:<br>
+                ucontrol approach x1 y1 5<br>
+                ucontrol itemTake build item IC<br>
+                end<br>
+                l2:<br>
+                ubind u1<br>
+                ucontrol flag 0<br>
+                set u1 @null<br>
+            </strong>
+        </h5>
+        <p>Yeah some big code) in 2 first line you can write what unit and what item you want, if unit dead processor will find new, if you change unit processor will unbind old unit and bind new. ( logic work from core to link block ) also you do setable item by sorter, <strong>sensor item sorter1 @config</strong> but dont forgot, first you need link processor to block only than to sorter!</p>
+
+        <br><hr><br>
+
+        <h4 id="c5">Mining</h4><br><br>
+
+        <p>Explain what it do , if you write a line of code in it write it in <code>&lt;strong&gt;</code></p>
+        <h5>
+            <strong>
+                <strong>in strong you write a line of code</strong> // here a explain<br>
+                <strong>here 2nd line </strong> // etc
+            </strong>
+        </h5>
+        <p>here write how it work</p>
     </main>
-</body>
 
+    <footer>
+        <br><br><hr><br><br>
+        <h3>This web page is made for informational purposes only, and didnt intended to harm your device.</h3>
+        <h4>Page Creator: [UR] TyT|xexebe#1178<br>
+            Text author: [UR] TyT|xexebe#1178<br>
+            And also thank very much HackerKuba2009#9722 and Huperion#0433 for your help in creating and editing this site! 
+        </h4>
+        <br><br><hr>
+    </footer>
+</body>
 </html>
