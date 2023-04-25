@@ -22,7 +22,7 @@ main ol ul strong , main ol li strong , p strong , main ul li strong {
   color: goldenrod;
 }
 
-main , header {
+main , header , footer {
   content: none;
   height: 100%;
   width: 80%;
