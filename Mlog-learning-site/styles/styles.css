@@ -102,7 +102,7 @@ em {
   size: 24px;
 }
 
-#copy-button1 {
+#copy-button1 , #copy-button2 {
   color: aliceblue;
   background-color: rgb(46, 46, 46);
 }

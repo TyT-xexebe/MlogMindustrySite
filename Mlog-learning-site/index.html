@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <link rel="stylesheet" href="styles/styles.css">
+    <link res="stylesheet" href="files">
     <script src="scripts/main.js"></script>
     <meta charset="utf-8">
     <title>Mlog-Learning</title>
@@ -89,6 +90,10 @@
         <ol>
             <li>
                 A processors start at line 0 (line is used instead of instruction)
+            </li><br>
+
+            <li>
+                scheme with all block and floor @index ( without erekir ) <a href="files/blocksIndex.msch" download>download</a>
             </li><br>
 
             <li>
@@ -1126,7 +1131,7 @@
             end
             code:
         </p>
-        <button id="copy-button1" onclick="copyToClipboard1('text1')">Copy Text</button>
+        <button id="copy-button1" onclick="copyToClipboard1('text1')">Copy code</button>
         <p>For more information about binding unit using multibinding see additional code examples are the end of this guide.</p>
 
         <br><hr><br>
@@ -1503,14 +1508,127 @@ A syntaxs of ulocate:
 
         <h4 id="c5">Mining</h4><br><br>
 
-        <p>Explain what it do , if you write a line of code in it write it in <code>&lt;strong&gt;</code></p>
+        <p>Uses mono to mine least items. Has a variable <strong>diffAllow</strong> (allowance difference) so that you can adjust when the monos change material.</p>
         <h5>
             <strong>
-                <strong>in strong you write a line of code</strong> // here a explain<br>
-                <strong>here 2nd line </strong> // etc
+                set unitType @mono<br>
+                set diffAllow 500<br>
+                set mat1 @copper<br>
+                set mat2 @lead<br>
+                set mat3 @sand<br>
+                set mat4 @scrap<br>
             </strong>
+             // settings of unit, diffAllow and needed ores. you can change it when you want<br>
+            <strong>
+                sensor coreNotAvail core @dead<br>
+                jump 16 equal coreNotAvail 0<br>
+                ubind unitType<br>
+                jump 15 strictEqual @unit null<br>
+                ulocate building core 0 @copper c.x c.y found core<br>
+                ulocate ore core true mat1 outx outy found1 building<br>
+                ulocate ore core true mat2 outx outy found2 building<br>
+                ulocate ore core true mat3 outx outy found3 building<br>
+                ulocate ore core true mat4 outx outy found4 building<br>
+                end<br>
+                sensor m1 core mat1<br>
+                sensor m2 core mat2<br>
+                sensor m3 core mat3<br>
+                sensor m4 core mat4<br>
+                jump 23 strictEqual found1 0<br>
+                set mat0 mat1<br>
+                op sub matX m1 diffAllow<br>
+                jump 27 greaterThan m2 matX<br>
+                jump 27 strictEqual found2 0<br>
+                set mat0 mat2<br>
+                op sub matX m2 diffAllow<br>
+                jump 31 greaterThan m3 matX<br>
+                jump 31 strictEqual found3 0<br>
+                set mat0 mat3<br>
+                op sub matX m3 diffAllow<br>
+                jump 35 greaterThan m4 matX<br>
+                jump 35 strictEqual found4 0<br>
+                set mat0 mat4<br>
+                op sub matX m4 diffAllow<br>
+                ubind unitType<br>
+                sensor holding @unit @totalItems<br>
+                sensor heldType @unit @firstItem<br>
+                sensor capacity @unit @itemCapacity<br>
+                jump 50 equal holding capacity<br>
+                jump 42 strictEqual heldType null<br>
+                jump 49 notEqual heldType mat0<br>
+                ulocate ore core true mat0 outx outy found building<br>
+                ucontrol within outx outy 7.5 within 0<br>
+                jump 47 equal within 1<br>
+                ucontrol approach outx outy 7 0 0<br>
+                jump 43 always within 1<br>
+                ucontrol mine outx outy 8 0 0<br>
+                end<br>
+                ucontrol stop outx outy 8 0 0<br>
+                ucontrol within c.x c.y 7 within 0<br>
+                jump 54 equal within 1<br>
+                ucontrol approach c.x c.y 8 0 0<br>
+                jump 50 always within 1<br>
+                ucontrol itemDrop core capacity 0 0 0
+            <strong>
         </h5>
-        <p>here write how it work</p>
+        <p>For copy code without // instructions <button id="copy-button2" onclick="copyToClipboard2('text2')">click here</button></p>
+        <p id="text2" hidden>
+            set unitType @mono
+set diffAllow 500
+set mat1 @copper
+set mat2 @lead
+set mat3 @sand
+set mat4 @scrap
+sensor coreNotAvail core @dead
+jump 16 equal coreNotAvail 0
+ubind unitType
+jump 15 strictEqual @unit null
+ulocate building core 0 @copper c.x c.y found core
+ulocate ore core true mat1 outx outy found1 building
+ulocate ore core true mat2 outx outy found2 building
+ulocate ore core true mat3 outx outy found3 building
+ulocate ore core true mat4 outx outy found4 building
+end
+sensor m1 core mat1
+sensor m2 core mat2
+sensor m3 core mat3
+sensor m4 core mat4
+jump 23 strictEqual found1 0
+set mat0 mat1
+op sub matX m1 diffAllow
+jump 27 greaterThan m2 matX
+jump 27 strictEqual found2 0
+set mat0 mat2
+op sub matX m2 diffAllow
+jump 31 greaterThan m3 matX
+jump 31 strictEqual found3 0
+set mat0 mat3
+op sub matX m3 diffAllow
+jump 35 greaterThan m4 matX
+jump 35 strictEqual found4 0
+set mat0 mat4
+op sub matX m4 diffAllow
+ubind unitType
+sensor holding @unit @totalItems
+sensor heldType @unit @firstItem
+sensor capacity @unit @itemCapacity
+jump 50 equal holding capacity
+jump 42 strictEqual heldType null
+jump 49 notEqual heldType mat0
+ulocate ore core true mat0 outx outy found building
+ucontrol within outx outy 7.5 within 0
+jump 47 equal within 1
+ucontrol approach outx outy 7 0 0
+jump 43 always within 1
+ucontrol mine outx outy 8 0 0
+end
+ucontrol stop outx outy 8 0 0
+ucontrol within c.x c.y 7 within 0
+jump 54 equal within 1
+ucontrol approach c.x c.y 8 0 0
+jump 50 always within 1
+ucontrol itemDrop core capacity 0 0 0
+        </p>
 
         <br><hr><br>
         <h3 id="c6">Attem83</h3><br>
