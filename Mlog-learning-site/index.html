@@ -79,6 +79,7 @@
                     <li><a href="#c4">Transport</a></li>
                     <li><a href="#c5">Mining</a></li>
                     <li><a href="#c6">Attem83</a></li>
+                    <li><a href="#c7">Timers</a></li>
                 </ul>
             </ol>
         </div>
@@ -114,6 +115,15 @@
                         // object of proccesor
                     </li><br>
 
+                    <li>
+                        <strong>@time</strong><br>
+                        // a time what you spend in world in milliseconds ( when you create the world and join in it the @time automaticaly start counting, when you leave or pause game counting stoppped , on servers @time starts when world load )
+                    </li><br>
+
+                    <li>
+                        <strong>@tick</strong><br>
+                        // @tick do a simple what do a @time, but in ticks ( A tick is similar to FPS for most purposes )
+                    </li><br>
                     <li>
                         <strong>@unit</strong><br>
                         // variable to access a unit returned from using 'bind'. Can be used as object to sensor data from the unit.
@@ -799,7 +809,7 @@
 
         <br><hr><br>
 
-        <p id="o2"><span></span>Command ' operation ' </span><br>
+        <p id="o2"><span>Command ' operation ' </span><br>
             a very big command for math
         </p>
         <p>syntax of operation:  
@@ -1635,12 +1645,59 @@ ucontrol itemDrop core capacity 0 0 0
         </p>
 
         <br><hr><br>
+
         <h3 id="c6">Attem83</h3><br>
         <h4>Explaining why a Attem83 bad</h4><br>
         <p>For binding units we always use a flag for any other processor can't control it ( if it have a flag cheking )</p>
         <p>So we have a situation, we play on server, on map we have 6 flares, all of it control by 1 multibind proccesor for transport thorium and titanium for thorium reactor scheme</p>
         <p>And someone build scheme for T3 units with attem logic with using a 5 flares, 1 processor with attem83 code - 1 unit so this a first - , we need place a bunch of processor for T5 or some other, when player place it - logic trying bind a flare, if it fail binding 83 times it bind ANY UNIT with flag or not it dont care, so attem logic just bind a 5 flares from thorium reactor scheme, but how we know multibind ( what using it thorium scheme ) have a name of this unit's and trying to control they in time when a attem also trying to control they - unit broke. Because of this Attem83 and codes where no flag checking very bad! dont use this! For normal schemes go to official mindustry discord server, it have a #verified-schematic channel when only good schems and logic!</p>
         <p>( a link to discord you can fing in game menu in bottom right )</p>
+
+        <br><hr><br>
+
+        <h3 id="c7">A loop-timer and simple timer</h3><br>
+        <h4>How to do timer for processor without stopping it by command wait</h4><br>
+        <p>How we know we can use a operation for this, like this code:</p>
+        <h5>
+            <strong>
+                op add num num 1<br>
+                jump l1 greaterThan num 10<br>
+                // some code what processor will do if num less than 10<br>
+                end<br>
+                l1:<br>
+                print "hi"<br>
+                printflush message1<br>
+                set num 0<br>
+            </strong>
+        </h5><br>
+        <p>This example good when you dont needed accurate time, in fact it is just a loop do..while</p><br>
+        <p>But if you need a timer which one will work with an accuracy of milliseconds and at the same time not use the <strong>wait</strong> command( since it completely stops the processor for a given time ) you can use <strong>@time</strong> and one trick</p>
+        <p>Lets do a timer what will add 1 to num every 5 second ( dont forgot, a @time counting in millisecond so 5 second = 5000</p>
+        <h5>
+            <strong>
+                jump l1 equal loop 1<br>
+                op add timeOut @time 5000<br>
+                set loop 1<br>
+                l1:<br>
+                jump l2 greaterThanEq @time timeOut<br>
+                // here you can write any code, its will be work while timer also work<br>
+                print num<br>
+                printflush message1<br>
+                end<br>
+                l2:<br>
+                op add num num 1<br>
+                set loop 0<br>
+            </strong>
+        </h5>
+        <p>
+            First we add a 5 second to @time and named it timeOut, then set loop = 1 ( because it will always add a 5 seconds )<br>
+            Then we chack if a @time >= then timeOut, if its true  so 5 seconds have passed and num will +1 and loop = 0 and the timer is updated again
+        </p>
+
+        <br><hr><br>
+
+
+
     </main>
 
     <footer>
@@ -1650,7 +1707,7 @@ ucontrol itemDrop core capacity 0 0 0
             Text author: [UR] TyT|xexebe#1178<br>
             And also thank very much HackerKuba2009#9722 and Huperion#0433 for your help in creating and editing this site! 
         </h4><br>
-        <h3>About issues you can write me in DM ( discord ) or write in <a href="https://github.com/TyT-xexebe/MlogMindustrySite/issues">github</a> of site.</h3>
+        <h4>About issues you can write me in DM ( discord ) or write in <a href="https://github.com/TyT-xexebe/MlogMindustrySite/issues">github</a> of site.</h4>
         <br><br><hr>
     </footer>
 </body>
