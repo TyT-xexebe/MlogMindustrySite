@@ -94,10 +94,6 @@
             </li><br>
 
             <li>
-                Scheme with all block and floor @index ( without erekir ) <a href="files/blocksIndex.msch" download>download</a>
-            </li><br>
-
-            <li>
                 <a href="https://yal.cc/game-tools/mlog/">A site for mindustry codding</a>
             </li><br>
 
@@ -107,7 +103,7 @@
                 <ul>
                     <li>
                         <strong>@thisx / @thisy</strong><br>
-                        // cooordinated x / y of this proccesor
+                        // coordinates x / y of this proccesor
                     </li><br>
 
                     <li>
@@ -117,7 +113,7 @@
 
                     <li>
                         <strong>@time</strong><br>
-                        // a time what you spend in world in milliseconds ( when you create the world and join in it the @time automaticaly start counting, when you leave or pause game counting stopped , on servers @time starts when world load )
+                        // a time what you spend in world in milliseconds ( when you create the world and join in it the @time automatically start counting, when you leave or pause game - counting stopped , on servers @time starts when world load )
                     </li><br>
 
                     <li>
@@ -126,7 +122,7 @@
                     </li><br>
                     <li>
                         <strong>@unit</strong><br>
-                        // variable to access a unit returned from using 'bind'. Can be used as object to sensor data from the unit.
+                        // variable to access a unit returned from using command ' bind ' . Can be used as object to sensor data from the unit.
                     </li><br>
 
                     <li>
@@ -141,12 +137,12 @@
 
                     <li>
                         <strong>@links</strong><br>
-                        // total number of blocks linked (connected) to the processor. To link a block, select the processor and then select a different block. It will have a purple diamond and a name to indicate that it is linked.
+                        // total number of blocks linked ( connected ) to the processor. To link a block, select the processor and then select a different block. It will have a purple diamond and a name to indicate that it is linked.
                     </li><br>
 
                     <li>
                         <strong>@ipt</strong><br>
-                        // instruction per tick (number of lines of code performed each tick. A tick is similar to FPS for most purposes)
+                        // instruction per tick ( number of lines of code performed each tick. A tick is similar to FPS for most purposes )
                     </li><br>
                 </ul>
 
@@ -155,29 +151,30 @@
             </li><br>
 
             <li>
-                Each processor type has different processing speeds (you can read this from @ipt):
-                micro processor(2ipt or 120 lines/sec at 60 FPS) , logic processor (480 / sec) , hyper proccesor ( 1500 / sec ) 
+                Each processor type has different processing speeds ( you can read this from @ipt ):<br>
+                micro processor( 2 ipt or 120 lines/sec at 60 FPS ) , logic processor ( 480 / sec ) , hyper proccesor ( 1500 / sec ) 
             </li><br>
 
             <li>
-                A memory cell can store a limited amount of numbers (double or float32). A memory cell stores 64 numbers, a memory bank 512 numbers. 
+                A memory cell can store a limited amount of numbers ( double or float32 ). A memory cell stores 64 numbers, a memory bank 512 numbers. 
             </li><br>
 
             <li>
-                All commands and words are case sensitive e.g. '@firstItem ', not '@firstitem ' 
+                All commands and words are case sensitive e.g. ' @firstItem ', not ' @firstitem ' 
             </li><br>
 
             <li>
-                Most comparisons are coercive - 'true' and 'false' will also be equal to 1 and 0 respectively. Be careful, null is also coerced to 0. To avoid this, use the strict equals comparison, ===. 
+                Most comparisons are coercive - ' true ' and ' false ' will also be equal to 1 and 0 respectively. Be careful, @null is also coerced to 0. To avoid this, use the strict equals comparison, === . 
             </li><br>
 
             <li>
-                If you write code outside Mindustry (e.g. on site or in VScode ) you can use jump labels (absolute) instead of jump numbers (relative) to avoid maintaining jumps<br>
-                Jump number method:<br>
-                (note that the code examples are written as you would see the code if you exported it from Mindustry. You can import them into Mindustry too)<br><br>
+                If you write code outside Mindustry ( e.g. on site or in VScode ) you can use jump labels ( absolute ) instead of jump numbers ( relative ) to avoid maintaining jumps<br>
+                Jump method:<br>
+                ( note that the code examples are written as you would see the code if you exported it from Mindustry. You can import them into Mindustry too )<br><br>
                 <strong>
-                    print "hello"<br>
-                    jump 0 always 0 0<br>
+                    jump 2 always 0 0<br>
+                    end<br>
+                    print "hello"
                 </strong><br>
                 you need write a number of line where you want jump, in big codes its problem, and if you delete / add line you need change number<br>
                 Jump label method:<br><br>
@@ -185,7 +182,7 @@
                     jump labe always 0 0<br>
                     end<br>
                     labe:<br>
-                    print "hello"<br>
+                    print "hello"
                 </strong><br>
                 You just need name of label and : , the 'labe:' does not count as a line, and when you paste the code in the game, it will disappear and the jump will be connected!<br>
             </li>
@@ -202,7 +199,7 @@
 
         <p id="i1"><span>Command ' read ' </span><br> return a variable from mem-cell block</p>
         <p>syntax of read: <strong>read var cell1 num</strong></p>
-        <p>' var ' is the name of the variable to store the output from the cell, 'cell1' is a linked mem-cell (although it can be linked in other ways), ' num ' is a 0-based index in mem-cell where to read the value from.</p>
+        <p>' var ' is the name of the variable to store the output from the cell, ' cell1 ' is a linked mem-cell ( although it can be linked in other ways ) , ' num ' is a 0-based index in mem-cell where to read the value from.</p>
         <h3>Example:</h3><br>
         <h5>
             <strong>read aCountOFunits cell1 0</strong><br>
@@ -217,7 +214,7 @@
         <h3>Example:</h3><br>
         <h5>
             <strong>write aCountOFunits cell1 0</strong><br>
-             // so we write a variable 'aCountOfUnits' at index 0 in mem-cell
+             // so we write a variable 'aCountOfUnits' at index 0 in mem-cell 1
         </h5><br>
 
         <p>Now lets connect a read and write commands in code!</p>
@@ -225,14 +222,14 @@
             proccessor 1:<br>
             <strong>
                 set aCountOFunits 5<br>
-                write aCountOFunits cell1 3<br>
-            </strong>
+                write aCountOFunits cell1 3
+            </strong><br>
             proccessor 2:<br>
             <strong>
                 read count cell1 3
             </strong>
         </h5>
-        <p>Processor 1 sets a value to 'aCountOfUnits' variable and then stores this to mem-cell at index 3. Processor 2 reads a 'aCountOfUnits' at index 3, but stores it a variable named 'count'.</p>
+        <p>Processor 1 sets a value to ' aCountOfUnits ' variable and then stores this to mem-cell at index 3. Processor 2 reads a ' aCountOfUnits ' at index 3, but stores it a variable named ' count '.</p>
 
         <br><hr><br>
         
@@ -248,7 +245,7 @@
                 <li><strong>draw lineRect 0 0 0 0</strong></li>
                 <li><strong>draw poly 0 0 0 0 0</strong></li>
                 <li><strong>draw triangle 0 0 0 0 0 0</strong></li>
-                <li><strong>draw image 0 0 0</strong></li>
+                <li><strong>draw image 0 0 0 0</strong></li>
             </ul><br>
         </p>
         <p>
@@ -257,9 +254,9 @@
 
         <br><hr><br>
 
-        <p id="i4"><span>Command ' print ' </span><br>stores (appends) a string to be sent to a message block. You need to use print flush to send the stored print string to a message block.</p>
-        <p>A syntax of print: <strong>print ""</strong></p>
-        <p>for write text you need add any text in " " , if you want write a value of any variable you need write it name and without " </p>
+        <p id="i4"><span>Command ' print ' </span><br>stores ( appends ) a string to be sent to a message block. You need to use print flush to send the stored print string to a message block.</p>
+        <p>A syntax of print: <strong>print </strong></p>
+        <p>for write text you need add any text in " " , if you want write a value of any variable you need write it name and without " " </p>
         <h3>Example:</h3><br>
         <h5>
             <strong>print "count"</strong><br>
@@ -280,19 +277,19 @@
 
         <br><hr><br>
 
-        <p id="b1"><span>Command ' drawflush '</span><br> need to flush a commands 'draw' to the display</p>
+        <p id="b1"><span>Command ' drawflush '</span><br> need to flush a commands ' draw ' to the display</p>
         <p>syntax of draw flush: <strong>drawflush display1</strong></p>
         <p>
             Send draw commands for example to display5 you need write 
-            <strong>drawflush display5 </strong>
+            <strong>drawflush display5</strong>
             and draw commands will be sended to display5
         </p>
         <h3>Example:</h3><br>
         <h5>
             <strong>
-                draw line 2 4 8 4 0 0<br>
-                drawflush display1<br>
-            </strong>
+                draw line 2 4 8 4<br>
+                drawflush display1
+            </strong><br>
             // will draw a line in sended coordinates of display, and sended it to display1
         </h5>
 
@@ -302,7 +299,7 @@
         <p>syntax of print flush: <strong>printflush message1</strong></p>
         <p>
             For send print commands for example to message5 you need write 
-            <strong>printflush message5 </strong>
+            <strong>printflush message5</strong>
             and print commands will be sended to message5
         </p>
         <h3>Example:</h3><br>
@@ -320,7 +317,7 @@
 
         <br><hr><br>
 
-        <p id="b3"><span>Command ' getlink'</span><br>need to linked to blocks what you link to processor</p>
+        <p id="b3"><span>Command ' getlink '</span><br>need to linked to blocks what you link to processor</p>
         <p>syntax of getlink: <strong>getlink link num</strong></p>
         <p>' link ' is a variable, ' num ' is index of the blocks linked to the processor in the order they are linked at the start of the code loop, num can be from 0 to the maximum number of blocks in the processors range.
             <br>For example we have processor, and it linked to 5 blocks, and we need to know what block is it</p>
@@ -386,7 +383,7 @@
                 sensor y @y block<br>
                 control shoot hail1 x y 1<br>
             </strong>
-             // Yeah, we haven't learned the 'sensor' command yet, but these 2 commands simply check the x and y coordinates in the block returned by getlink. Important, first we need to link the processor to a hail and then to link any other block. getlink returns the second block, then sensor returns the coordinates and hail will shoot at the block!
+             // Yeah, we haven't learned the ' sensor ' command yet, but these 2 commands simply check the x and y coordinates in the block returned by getlink. Important, first we need to link the processor to a hail and then to link any other block. getlink returns the second block, then sensor returns the coordinates and hail will shoot at the block!
         </h5><br>
 
         <p><strong>control shootp block unit sh</strong><br>
@@ -416,16 +413,16 @@
 
         <p>
             <strong>control color illuminator1 num</strong><br>
-            Seriously, idk why you might want to use this to alter illuminators. It's a pretty pointless command. You link the illuminator and write any number and it will display some color (weakly, best seen at night time). Or you can reduce the number of commands and use 
+            Seriously, idk why you might want to use this to alter illuminators. It's a pretty pointless command. You link the illuminator and write any number and it will display some color ( weakly, best seen at night time ). Or you can reduce the number of commands and use 
             <strong>packcolor result 0 0 0 0</strong>
-            . Color is input as four different channels RGB and Alpha with values from 0-1. Colors can also be input as RGB hex.
+            Color is input as four different channels RGB and Alpha with values from 0-1. Colors can also be input as RGB hex.
         </p>
 
         <br><hr><br>
 
         <p id="b5"><span>Command ' radar '</span><br>search for units around turret. There are many inputs, good luck understanding it!</p>
         <p><strong>radar enemy any any distance turret 1 result</strong><br>
-            syntax of selecting unit 'enemy any any' allows up to 3 filters to narrow search results
+            syntax of selecting unit ' enemy any any ' allows up to 3 filters to narrow search results
 
             <ul id="ul">
                 <li>
@@ -507,10 +504,10 @@
 
         <br><hr><br>
 
-        <p id="b6"><span>Command 'sensor' </span><br>returns information about a block or unit</p>
+        <p id="b6"><span>Command ' sensor ' </span><br>returns information about a block or unit</p>
         <p>There are 3 classes of information: items, fluids and parameters. These can be accessed by tapping the pencil icon next to the info input <br>
             A syntax of sensor: <strong>sensor var block @info</strong><br>
-            We sensor the @info in block/unit and return the result to a variable<br>
+            We sensor the @info in block / unit and return the result to a variable<br>
             Now I will write the fixed values you can sensor
         </p><br>
            <h3>Items and Fluids:</h3>
@@ -521,7 +518,7 @@
                 </li>
 
                 <li>
-                    <strong>sensor var block @lead'</strong> // check lead in ' block 
+                    <strong>sensor var block @lead</strong> // check lead in ' block '
                 </li>
 
                 <li>
@@ -605,7 +602,7 @@
                 </li>
 
                 <li>
-                    <strong>@firstItem</strong> // name of item in block or unit. Unit can only hold one item type so this can be used to determine which item they are holding. For containers this returns the first item found in order (same order as items shown in a sorter).
+                    <strong>@firstItem</strong> // name of item in block or unit. Unit can only hold one item type so this can be used to determine which item they are holding. For containers this returns the first item found in order ( same order as items show in a sorter ).
                 </li>
 
                 <li>
@@ -613,11 +610,11 @@
                 </li>
 
                 <li>
-                    <strong>@totalPower</strong> // power in block (output: 1 / 0 )
+                    <strong>@totalPower</strong> // power in block ( output: 1 / 0 )
                 </li>
 
                 <li>
-                    <strong>@itemCapacity</strong> // item capacity in block or unit. For containers / vaults this is for a single item type. For conateiners / vaults connected to the core this is for the vault alone so you can have a higher totalItem than a container / vault can hold(!)
+                    <strong>@itemCapacity</strong> // item capacity in block or unit. For containers / vaults this is for a single item type. For conateiners / vaults connected to the core this is for the vault alone so you can have a higher totalItem than a container / vault can hold( ! )
                 </li>
 
                 <li>
@@ -625,7 +622,7 @@
                 </li>
 
                 <li>
-                    <strong>@powerNetStored</strong> // stored power in battery (Here, net means like a spider web, not related to gross)
+                    <strong>@powerNetStored</strong> // stored power in battery ( Here, net means like a spider web, not related to gross )
                 </li>
 
                 <li>
@@ -661,7 +658,7 @@
                 </li>
 
                 <li>
-                    <strong>@efficiency</strong> // efficiency of work in block (output: 0 / 1 )
+                    <strong>@efficiency</strong> // efficiency of work in block ( output: 0 / 1 )
                 </li>
 
                 <li>
@@ -669,7 +666,7 @@
                 </li>
 
                 <li>
-                    <strong>@timescale</strong> // timescale in block (overdrive rate)
+                    <strong>@timescale</strong> // timescale in block ( overdrive rate )
                 </li>
 
                 <li>
@@ -697,7 +694,7 @@
                 </li>
 
                 <li>
-                    <strong>@dead</strong> // dead in unit (output: 0 / 1 ). Means if a unit is available to control. Units on payload conveyors or in factories are not on the map and return dead=1.
+                    <strong>@dead</strong> // dead in unit ( output: 0 / 1 ). Means if a unit is available to control. Units on payload conveyors or in factories are not on the map and return dead=1.
                 </li>
 
                 <li>
@@ -705,7 +702,7 @@
                 </li>
 
                 <li>
-                    <strong>@shooting</strong> //  shooting in turret / unit (output: 0 / 1 ) or mouse down for the player unit.
+                    <strong>@shooting</strong> //  shooting in turret / unit ( output: 0 / 1 ) or mouse down for the player unit.
                 </li>
 
                 <li>
@@ -721,7 +718,7 @@
                 </li>
 
                 <li>
-                    <strong>@mine</strong> // mining status (output: 0 / 1 )
+                    <strong>@mine</strong> // mining status ( output: 0 / 1 )
                 </li>
 
                 <li>
@@ -741,7 +738,7 @@
                 </li>
 
                 <li>
-                    <strong>@controlled</strong> // index of control of unit by self (0) / processor (1) / player (2) / RTS commands (3).
+                    <strong>@controlled</strong> // index of control of unit by self ( 0 ) / processor ( 1 ) / player ( 2 ) / RTS commands ( 3 ).
                 </li>
 
                 <li>
@@ -761,7 +758,7 @@
                 </li>
 
                 <li>
-                    <strong>@enabled</strong> //  enabled in block (output: 0 / 1 )
+                    <strong>@enabled</strong> //  enabled in block ( output: 0 / 1 )
                 </li>
 
                 <li>
@@ -797,8 +794,8 @@
         
         <br><hr><br>
 
-        <p id="o1"><span>Command 'set' </span><br>
-            create/change a variable with a value
+        <p id="o1"><span>Command ' set ' </span><br>
+            create / change a variable with a value
         </p>
         <p>A syntax of set: <strong>set var 0</strong></p>
         <p>Very simple command so I will write a example and that's all:</p>
@@ -888,7 +885,7 @@
                 </li>
                 
                 <li>
-                    <strong>op or result a b </strong> // or (or )
+                    <strong>op or result a b </strong> // or ( or )
                 </li>
 
                 <li>
@@ -960,7 +957,7 @@
                 </li>
 
                 <li>
-                    <strong>op tan result a b </strong> // tan ( tan )( for programmers Math.tan
+                    <strong>op tan result a b </strong> // tan ( tan )( for programmers Math.tan )
                 </li>
 
                 <li>
@@ -979,7 +976,7 @@
         
         <br><hr><br>
 
-        <p id="o3"><span>Command 'lookup' </span><br>
+        <p id="o3"><span>Command ' lookup ' </span><br>
             very useful command
         </p>
         <p>Syntax of lookup
@@ -993,15 +990,15 @@
                 <li><strong>lookup liquid result 0</strong></li>
             </ul>
         </p><br>
-        <p>You can find a block / unit / resource by their ID/index, for example crawler unit ID = 10</p>
+        <p>You can find a block / unit / resource by their ID / #index, for example crawler unit #index = 10</p>
         <h5>
             <strong>lookup unit var 10</strong> // var will be = @crawler
         </h5>
 
         <br><hr><br>
 
-        <p id="o4"><span>Command pack color</span><br>
-        compactly store a color in a variable for use with illuminators or displays. Can be written to /read from a mem-cell. Does not display in the Vars tab correctly
+        <p id="o4"><span>Command ' pack color '</span><br>
+        Compactly store a color in a variable for use with illuminators or displays. Can be written to / read from a mem-cell. Does not display in the Vars tab correctly
         </p>
         <p>syntax:<br>
             <strong>packcolor result 1 0 0 1</strong><br>
@@ -1015,11 +1012,11 @@
 
         <br><hr><br>
 
-        <p id="f1"><span>Command 'wait '</span><br>
+        <p id="f1"><span>Command ' wait '</span><br>
             need for pausing processor for some time ( in seconds )
         </p>
         <p>A syntax of wait: <strong>wait num</strong></p>
-        <p>' num ' time in seconds ( 0.5 , 10 , 26 , 1.06 , etc)</p>
+        <p>' num ' time in seconds ( 0.5 , 10 , 26 , 1.06 , etc )</p>
         <h5>
             <strong>wait 5</strong> // willpausing processor for 5 second.
         </h5>
@@ -1027,7 +1024,7 @@
         <br><hr><br>
 
         <p id="f2"><span>Command ' stop '</span><br>
-            just stop processor ( forever, until a manual change of the processor code
+            just stop processor ( forever, until a manual change of the processor code )
         </p>
         <p>A syntax of stop: <strong>stop</strong></p>
 
@@ -1074,7 +1071,7 @@
                 </li>
 
                 <li>
-                    <strong>jump num always a b</strong> // always jump to (num)line
+                    <strong>jump num always a b</strong> // always jump to ( num )line
                 </li>
             </ul>
         </p>
@@ -1092,7 +1089,7 @@
                 printflush message1<br>
             </strong>
         </h5>
-        <p>Explanation - we need to link the processor to the door and message block. Then we sensor if the door is enabled and if enabled 1(open) it jumps to the print "open" command.</p>
+        <p>Explanation - we need to link the processor to the door and message block. Then we sensor if the door is enabled and if enabled 1( open ) it jumps to the print " open " command.</p>
 
         <br><hr><br>
 
@@ -1101,7 +1098,7 @@
 
         <br><hr><br>
 
-        <p id="u1"><span>Command 'ubind'</span><br>
+        <p id="u1"><span>Command ' ubind '</span><br>
         binds a unit. Here, bind means to return the unit object for further processing. It does not take control of the unit.
         </p>
         <p>A syntax of ubind<strong>ubind @unit</strong></p>
@@ -1113,10 +1110,10 @@
                 ubind @flare<br>
                 ubind @flare<br>
             </strong>
-            code will be bind a 2 different flares (if there are 2 or more flares available in the map)
+            code will be bind a 2 different flares ( if there are 2 or more flares available in the map )
         </p><br>
         <p>
-            Someone might ask "but how people write fast big code that works fast even if there are many units?" Its easy, its named ' multibind ' here example:
+            Someone might ask " but how people write fast big code that works fast even if there are many units? " Its easy, its named ' multibind ' here example:
         </p><br>
         <h5>
             <strong>op add flagger @thisx @thisy</strong> // makes a number which will repeat with a chance of 1 in a million<br>
@@ -1151,7 +1148,7 @@
         <br><hr><br>
 
         <p id="u2"><span>Command ' ucontrol ' </span><br>
-        ontrol units. This will set the processor to the unit controller. Be careful not to control units already controlled by other processors.<br>
+        Control units. This will set the processor to the unit controller. Be careful not to control units already controlled by other processors.<br>
         Syntaxs of ucontrol: 
         </p><br>
         <p>
@@ -1251,10 +1248,9 @@
     
         <br><hr><br>
 
-        <p id="u4"><span>Command ' ulocate </span><br>
+        <p id="u4"><span>Command ' ulocate '</span><br>
         can locate a building, ores etc by unit in the whole map outside of their normal range. But limited to the closest single object returned.
-
-A syntaxs of ulocate: 
+        A syntaxs of ulocate: 
         </p>
         <p>A syntaxs of ulocate: <strong>building core true @copper outx outy found build</strong></p>
         <p>a syntaxs of ' building '
@@ -1445,7 +1441,7 @@ A syntaxs of ulocate:
                 set @counter 0
             </strong>
         </h5>
-        <p>Yeah maybe example not very good (because we have lookup ) but if you understand this can be use in a lot of codes, just copy and test this!</p>
+        <p>Yeah maybe example not very good ( because we have lookup ) but if you understand this can be use in a lot of codes, just copy and test this!</p>
 
         <br><hr><br>
 
@@ -1468,13 +1464,13 @@ A syntaxs of ulocate:
                 set num 0
             </strong>
         </h5>
-        <p>First we checking type of link = thorium-reactor or no, if link = thorium-reactor we checking cryofluid in it, if it grrater than 1 we ON it and num+ for checking next reactor, if cryofluid less than 1 reactor OFF, when num( getlink ) more than links it return to 0</p>
+        <p>First we checking type of link = thorium-reactor or no, if link = thorium-reactor we checking cryofluid in it, if it grrater than 1 we ON it and num+ for checking next reactor, if cryofluid less than 1 reactor OFF, when num ( getlink ) more than links it return to 0</p>
 
         <br><hr><br>
 
         <h4 id="c4">Trasport</h4><br><br>
 
-        <p>Now i will show you simple "resource carrier" for 1 unit</p>
+        <p>Now i will show you simple " resource carrier " for 1 unit</p>
         <h5>
             <strong>
                 set unit @flare<br>
@@ -1522,7 +1518,7 @@ A syntaxs of ulocate:
 
         <h4 id="c5">Mining</h4><br><br>
 
-        <p>Uses mono to mine least items. Has a variable <strong>diffAllow</strong> (allowance difference) so that you can adjust when the monos change material.</p>
+        <p>Uses mono to mine least items. Has a variable <strong>diffAllow</strong> ( allowance difference ) so that you can adjust when the monos change material.</p>
         <h5>
             <strong>
                 set unitType @mono<br>
@@ -1671,8 +1667,8 @@ ucontrol itemDrop core capacity 0 0 0
             </strong>
         </h5><br>
         <p>This example good when you dont needed accurate time, in fact it is just a loop do..while</p><br>
-        <p>But if you need a timer which one will work with an accuracy of milliseconds and at the same time not use the <strong>wait</strong> command( since it completely stops the processor for a given time ) you can use <strong>@time</strong> and one trick</p>
-        <p>Lets do a timer what will add 1 to num every 5 second ( dont forgot, a @time counting in millisecond so 5 second = 5000</p>
+        <p>But if you need a timer which one will work with an accuracy of milliseconds and at the same time not use the <strong>wait</strong> command ( since it completely stops the processor for a given time ) you can use <strong>@time</strong> and one trick</p>
+        <p>Lets do a timer what will add 1 to num every 5 second ( dont forgot, a @time counting in millisecond so 5 second = 5000 )</p>
         <h5>
             <strong>
                 jump l1 equal loop 1<br>
@@ -1696,8 +1692,6 @@ ucontrol itemDrop core capacity 0 0 0
 
         <br><hr><br>
 
-
-
     </main>
 
     <footer>
@@ -1707,7 +1701,7 @@ ucontrol itemDrop core capacity 0 0 0
             Text author: [UR] TyT|xexebe#1178<br>
             And also thank very much HackerKuba2009#9722 and Huperion#0433 for your help in creating and editing this site! 
         </h4><br>
-        <h4>About issues you can write me in DM ( discord ) or write in <a href="https://github.com/TyT-xexebe/MlogMindustrySite/issues">github</a> of site.</h4>
+        <h5>About issues you can write me in DM ( discord ) or write in <a href="https://github.com/TyT-xexebe/MlogMindustrySite/issues">github</a> of site.</h5>
         <br><br><hr>
     </footer>
 </body>

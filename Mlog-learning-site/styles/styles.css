@@ -9,7 +9,7 @@ p , main ol li {
   color: rgb(216, 216, 216);
 }
 
-header h1 , main h3 , main h4 , footer h3 , footer h4 {
+header h1 , main h3 , main h4 , footer h3 , footer h4 , footer h5 {
   color: rgb(216, 216, 216);
   text-align: center;
 }
@@ -63,6 +63,7 @@ main h5 strong {
   background-color: rgb(48, 48, 48);
   height: 100%;
   width: 50%;
+  word-spacing: 1px;
 }
 
 #ul {
