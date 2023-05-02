@@ -81,6 +81,26 @@
                     <li><a href="#c6">Attem83</a></li>
                     <li><a href="#c7">Timers</a></li>
                 </ul>
+
+                <br><hr><br>
+
+                <li><a href="#w0" id="link">World Processor</a></li><br>
+                <ul>
+                    <li><a href="#w1">Get Block</a></li>
+                    <li><a href="#w2">Set Block</a></li>
+                    <li><a href="#w3">Spawn Unit</a></li>
+                    <li><a href="#w4">Apply Status</a></li>
+                    <li><a href="#w5">Spawn Wave</a></li>
+                    <li><a href="#w6">Set Rule</a></li>
+                    <li><a href="#w7">Flush Massage</a></li>
+                    <li><a href="#w8">Cutscene</a></li>
+                    <li><a href="#w9">Explosion</a></li>
+                    <li><a href="#w10">Set Rate</a></li>
+                    <li><a href="#w11">Fetch</a></li>
+                    <li><a href="#w12">Get Flag and Set Flag</a></li>
+                    <li><a href="#w13">Set Prop</a></li>
+                </ul>
+
             </ol>
         </div>
     </nav>
@@ -118,7 +138,8 @@
 
                     <li>
                         <strong>@tick</strong><br>
-                        // @tick do a simple what do a @time, but in ticks ( A tick is similar to FPS for most purposes )
+                        // @tick do a simple what do a @time, but in ticks ( A tick is similar to FPS for most purposes )<br>
+                        // @tick resets if you exit the game with the window icon, but not when you exit using Save & Quit. (v6)
                     </li><br>
                     <li>
                         <strong>@unit</strong><br>
@@ -144,7 +165,57 @@
                         <strong>@ipt</strong><br>
                         // instruction per tick ( number of lines of code performed each tick. A tick is similar to FPS for most purposes )
                     </li><br>
+
+                    <li>
+                        <strong>@itemCount / @liquidCount / @unitCount / @blockCount</strong><br>
+                        // Count of objects in game ( with secret objects like galium )
+                    </li><br>
+
+                    <li>
+                        <strong>@air</strong><br>
+                        // can use for Set Block for destroy it ( dont work like itemDrop to @air in v6 )
+                    </li><br>
                 </ul>
+            
+            <li>
+                You can invert a sorter's behavior by disabling it. Same goes for overflow gates
+            </li><br>
+
+            <li>
+                uradar radars from every unit of the same type of the bound unit
+            </li><br>
+
+            <li>
+                Since logic has been introduced, there have been cooldowns and delays added to many things: <br>
+                transferring items and picking up payloads (2s on v6, 1.5s on v7); <br>
+                uncontrolling units (10s in v7); <br>
+                re-enabling blocks after they've been disabled by logic (v6 only, 6 sec); <br>
+                door interactions (1s manual, 1.33s logic)
+            </li><br>
+
+            <li>
+                You can't control many blocks you'd consider controllable. Notable examples are: mass drivers, power nodes, batteries, message blocks
+            </li><br>
+
+            <li>
+                If you're having a hard time viewing your code, try lowering your UI scale
+            </li><br>
+
+            <li>
+                Logic tends to break during map reloads. We're not exactly sure what breaks and what doesn't
+            </li><br>
+
+            <li>
+                Numbers can only store 52 bits of information (+1 sign bit), and represent 53, because there is an implicit 1. standing before the fractional mantissa (the 3.1415926e+0 part of a floating point number) due to how binary in scientific notation works. This means that the largest "safe" number is 2^53 (9 007 199 254 740 992.0 or 0x20 00 00 00 00 00 00)
+            </li><br>
+
+            <li>
+                ubind loads units according to load order in Groups.unit (the array which all units are stored in), in a cycle. It isn't random. However, reloading the save shuffles unit order due to unknown reasons
+            </li><br>
+
+            <li>
+                The way packcolor works is it takes the constituent components of a color and converts it into a double that the display can then process. It will display as if it was 0, though. Divide it by 2^-1074 to get the raw color.
+            </li><br>
 
             <li>
                 When code passes the last line, it will start again from line 0
@@ -1130,17 +1201,17 @@
         </h5>
         <p>Click on button to copy this code without // instruction</p>
         <p id="text1" hidden>
-            op add flagger @thisx @thisy
-            ubind u1
-            sensor d1 @unit @dead
-            jump code equal d1 0
-            ubind @flare
-            sensor flag @unit @flag
-            jump 0 notEqual flag 0
-            set u1 @unit
-            ucontrol flag flagger
-            end
-            code:
+op add flagger @thisx @thisy
+ubind u1
+sensor d1 @unit @dead
+jump code equal d1 0
+ubind @flare
+sensor flag @unit @flag
+jump 0 notEqual flag 0
+set u1 @unit
+ucontrol flag flagger
+end
+code:
         </p>
         <button id="copy-button1" onclick="copyToClipboard1('text1')">Copy code</button>
         <p>For more information about binding unit using multibinding see additional code examples are the end of this guide.</p>
@@ -1691,6 +1762,188 @@ ucontrol itemDrop core capacity 0 0 0
         </p>
 
         <br><hr><br>
+
+        <h3 id="w0">World Processor</h3>
+        <h4>In game we have second type of processor ' world processor ' , we can build and redact code of it ONLY in map redactor</h4>
+        <h4>By world processors you can use a commands like in default processor, but it have a another ' world ' commands</h4>
+
+        <br><hr><br>
+
+        <h3>World</h3><br>
+        <h4>We have 14 commands of this category: Get Block , Set Block , Spawn Unit , Apply Status , Spawn Wave , Set Rule , Flush Message , Cutscene , Explosion , Set Rate , Fetch , Get Flag , Set Flag , Set Prop</h4>
+
+        <br><hr><br>
+
+        <p id="w1"><span>Command ' Get Block '</span><br>
+            Can get a floor , ore , block , building on needed coordinates and output it like object
+        </p>
+        <p>Syntax of Get Block: <strong>getblock ? output x y</strong></p>
+        <p>Extend of ' ? ' you can write a floor , ore , building , block ( i.g. what you need ) , ' output ' output of object what you specified.  ' x ' ' y ' coordinates of ' ? ' what you need</p><br>
+        <p>For example you need check a cryofluid in thorium reactor by this command ( a coordinates of reactor will be 120 , 36 )</p>
+        <h5>
+            <strong>
+                getblock building var 120 36<br>
+                sensor cryo var @cryofluid<br>
+                print "cryo in "<br>
+                print var<br>
+                print "is "<br>
+                print cryo<br>
+                printflush message1
+            </strong>
+        </h5>
+        <p>Simple a Get Block = ucontrol getBlock, but you dont need a unit, this code will output a " cryo in thorium-reactor is ? " in message1</p>
+
+        <br><hr><br>
+
+        <p id="w2"><span>Command ' Set Block '</span><br>
+            You can set a block , floor , building on needed coordinates , team and rotation
+        </p>
+        <p>Syntax of Set Block: <strong>setblock ? @block x y @team rotation</strong></p>
+        <p>
+            Extend of ' ? ' you need write a floor / block / building , then a ' @block ' is a @index of block / floor / building ( like @stone-wall , @spore-moss , @surge-wall )<br>
+            ' x ' and ' y ' where you want build this, team of building like @sharded @crux @derelict etc.<br>
+            and ' rotation ' is in what rotation will be set block ( 0 , 1 , 2 ,3 )
+        </p>
+
+        <br><hr><br>
+
+        <p id="w3"><span>Command ' Spawn Unit '</span><br>
+        You can spawn a any unit and get object of it
+        </p>
+        <p>Syntax of Spawn Unit: <strong>spawn @unit x y rotate @team object</strong></p>
+        <p>
+            You write a needed unit, for example @flare, then ' x ' , ' y ' and ' rotate ( in 360 degrees ) ' where unit will be spawn<br>
+            Then ' @team ' and output a object of spawned unit what you can control
+        </p>
+        <p>little example: <strong>spawn @corvus 149 194 90 @crux U1</strong></p>
+
+        <br><hr><br>
+
+        <p id="w4"><span>Command ' Apply Status '</span><br>
+        Add a effect to unit
+        </p>
+        <p>Syntax of Apply status: <strong>status ? eff unit time</strong></p>
+        <p>
+            Extend of ' ? ' you need write true / false, true - clear a status from unit, false - adding status to unit<br>
+            ' eff ' - effect what you want add to unit, simplr basic effects what you have in ' core databese '<br>
+            ' unit ' you can write a @flare and this effect will be get to all flares, or you can write a object of unit ( be carefull! effects will be get to unit what team = team of proccesor, so if you want get effect for crux unit, you need build in redactor a world processor by crux team )<br>
+            ' time ' time in second for what you will get effect to unit
+        </p>
+
+        <br><hr><br>
+
+        <p id="w5"><span>Command ' Spawn Wave '</span><br>
+        Spawn waves on coordinates / default
+        </p>
+        <p>Syntax's of Spawn Wave:</p>
+        <ul id="ul">
+            <li><strong>spawnwave x y false</strong> // Spawn a default wave on x y coordinates what you write</li>
+            <li><strong>spawnwave x y true</strong> // Spawn default wave on default coordinater ( enemy drop zone ) you need write any in x and y ( if you dont do this, then when you will paste your code this line will broke and will be like this: ' spawnwave false true 10 '</li>
+        </ul>
+
+        <br><hr><br>
+
+        <p id="w6"><span>Command ' Set Rule '</span><br>
+        Change a default rules of world to new
+        </p>
+        <p>Syntaxs of Set Rule:</p>
+        <ul id="ul">
+            <li><strong>setrule currentWaveTime time</strong> // change time of current wave spasing </li>
+            <li><strong>setrule waveTimer true</strong> // true - waves will be spawn in default spacing, false - wave will be spawned only when you click ( on button near wave timer )</li>
+            <li><strong>setrule waves true</strong> // true - waves of ( default spawning ) , false - waves will be off</li>
+            <li><strong>setrule wave num</strong> // set wave to number( num ) what you write</li>
+            <li><strong>setrule waveSpacing time</strong> // change time of wave spasing ( ' time ' in second )</li>
+            <li><strong>setrule waveSending true</strong> // true - you can skip wave by button near wave timer, false - button deleted</li>
+            <li><strong>setrule attackMode true</strong> // true - yes , false - no ( change a current team of processor )</li>
+            <li><strong>setrule enemyCoreBuildRadius num</strong> // change NObuild core radius to new ( num )</li>
+            <li><strong>setrule dropZoneRadius num</strong> // change radius of enemy drop zone to new( num )</li>
+            <li><strong>setrule unitCap num</strong> // adds the number of possible built units to the default setting, or can be -num for subtract count</li>
+            <li><strong>setrule mapArea 0 x y w h</strong> // change a map area ( can't do bigger than default ) need write a x , y coordinates from what you want change and height , width ( first number ( 0 ) just for skiped this setting ( because Anuke genius ) )</li>
+            <li><strong>setrule lighting true</strong> // true / false lighting ( what you can change in map settings )</li>
+            <li><strong>setrule ambientLight num</strong> // change light</li>
+            <li><strong>setrule solarMultiplier num</strong> // change default solar multiplayer of map to new</li>
+            <li><strong>setrule buildSpeed num @sharded</strong> // change default building speed ( of needed team ) to new</li>
+            <li><strong>setrule unitBuildSpeed 1 @sharded</strong> // change default unit building speed ( of needed team ) to new</li>
+            <li><strong>setrule unitCost 1 @sharded</strong> // change default unit cost ( of needed team ) to new</li>
+            <li><strong>setrule unitDamage 1 @sharded</strong> // change default unit damage ( of needed team ) to new</li>
+            <li><strong>setrule blockHealth 1 @sharded</strong> // change default block health ( of needed team ) to new</li>
+            <li><strong>setrule blockDamage 1 @sharded</strong> // // change default block damage ( of needed team ) to new</li>
+            <li><strong>setrule rtsMinWeight 5 @sharded</strong> // comingSoon ( anybody dk )</li>
+            <li><strong>setrule rtsMinSquad 5 @sharded</strong> // comingSoon ( anybody dk )</li>
+        </ul>
+
+        <br><hr><br>
+
+        <p id="w7"><span>Command ' Flush Message '</span><br>
+        Flush print commands
+        </p>
+        <p>Syntaxs of Flush Message:</p>
+        <ul id="ul">
+            <li><strong>message notify</strong> // flush print command like notify for 3~ second ( on top-center of screen )</li>
+            <li><strong>message announce time</strong> // announce print commands to center of screen for some ' time '( in seconds )</li>
+            <li><strong>message toast time</strong> // flush print commands to top-center of screen for some ' time '( in seconds )</li>
+            <li><strong>message mission</strong> // flush print commands like mission ( in the wave table )</li>
+        </ul>
+
+        <br><hr><br>
+
+        <p id="w8"><span>Command ' Cutscene '</span><br>
+        Starts a cutscene for more immersion in what is happening
+        </p>
+        <p>Syntaxs of Cutscene:</p>
+        <ul id="ul">
+            <li><strong>cutscene pan x y speed</strong> // pan your screen to x y coordinates with needed speed</li>
+            <li><strong>cutscene zoom lvl</strong> // zoom your screen to needed lvl</li>
+            <li><strong>cutscene stop</strong> // stopped pan or zoom cutscene</li>
+        </ul>
+
+        <br><hr><br>
+
+        <p id="w9"><span>Command ' Explosion '</span><br>
+        Trigger explosion on needed coordinates, team, damage and type
+        </p>
+        <p>
+            Syntax of Explosion: <strong>explosion @team x y radius damage air ground pierce</strong><br>
+            ' @team ' by what team will be explosion ( explosion will be not damage this team ) , x y coordinates of explosion, ' radius ' of explosion , damage , will be explosion damage ' air / ground / pierce ' building ot unit ( true / false )
+        </p>
+        
+        <br><hr><br>
+
+        <p id="w10"><span>Command ' Set Rate '</span><br>
+        Setting a ipt( line/sec ) for proccesor
+        </p>
+        <p>Syntax of Set Rate: <strong>setrate ipt</strong></p>
+
+        <br><hr><br>
+
+        <p id="w11"><span>Command ' Fetch '</span><br>
+        Count of object, or getting it by #index and output object of it with what you can interact ( sensor , control etc. )
+        </p>
+        <p>Syntaxs of Fetch:</p>
+        <ul id="ul">
+            <li><strong>fetch unit out @team #index</strong> // ' out ' - output object of unit what have ' #index ' number and in ' @team '</li>
+            <li><strong>fetch player out @team #index</strong> // ' out ' - output object of unit what have ' #index ' number and in ' @team '</li>
+            <li><strong>fetch core out @team #index</strong> // ' out ' - output object of core what have ' #index ' number and in ' @team '</li>
+            <li><strong>fetch build out @team #index</strong> // ' out ' - output object of unit what have ' #index ' number and in ' @team '</li>
+            <li><strong>fetch unitCount out @team</strong> // output count of unit in @team</li> 
+            <li><strong>fetch playerCount out @team</strong> // output count of player in @team</li>
+            <li><strong>fetch coreCount out @team</strong> // output count of core in @team</li>
+            <li><strong>fetch buildCount out @team</strong> // output count of build in @team</li>
+        </ul>
+
+        <br><hr><br>
+
+        <p id="w12"><span>Commands ' Get Flag ' and ' Set Flag '</span><br>
+        Needed for redact a commands in map settings ' objectives '
+        </p>
+
+        <br><hr><br>
+
+        <p id="w13"><span>Command ' Set Prop '</span><br>
+        Can get a items , liquids , @instructions( only: x , y , rotation , team , flag , health( can't get more then maxHP ) , totalPower , payLoadType ) to blocks / unit
+        </p>
+        <p>Syntax of Set Prop: <strong>setprop object block count</strong> get ' object '- item / liquid / @parameter for ' block ' - unit / block and ' count ' of ' object ' </p>
+
 
     </main>
 
