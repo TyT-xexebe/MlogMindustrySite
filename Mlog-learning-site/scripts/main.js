@@ -34,3 +34,4 @@ function copyToClipboard1(text1) {
   
     document.body.removeChild(textarea);
   }
+
