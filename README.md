@@ -1,2 +1,3 @@
 # Mlog-Mindustry-Site
-Writting a site about Mindustry Mlog languege, learning and explain
+W
+The site was created for learning the M-log programming language in the Mindustry.
