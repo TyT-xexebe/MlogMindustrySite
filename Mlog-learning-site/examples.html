@@ -1,0 +1,1690 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles/styles2.css">
+    <link rel="stylesheet" href="files">
+    <link rel="html" href="index.html">
+    <script src="scripts/main2.js"></script>
+    <meta charset="utf-8">
+    <title>Mlog-Learning-Examples</title>
+</head>
+
+<body>
+    <nav onmouseleave="closeF()">
+        <div id="menu1">
+            <button onclick="openF()">Code Example's</button>
+            <p id="folder1" hidden>
+                <a href="#link1" onclick="closeF()">Timer-of-game</a>
+                <a href="#link2" onclick="closeF()">#ID-search</a>
+                <a href="#link3" onclick="closeF()">MultiBind(1)-example</a>
+                <a href="#link4" onclick="closeF()">MultiBind(2)-example</a>
+                <a href="#link5" onclick="closeF()">Mining</a>
+            </p> 
+            
+            <p id="folder2" hidden>   
+                <a href="#link6" onclick="closeF()">AI-attack</a>
+                <a href="#link7" onclick="closeF()">Turret-target</a>
+                <a href="#link8" onclick="closeF()">Unit-control</a>
+                <a>Comming-Soon&trade;</a>
+            </p>
+
+            <a href="https://tyt-xexebe.github.io/MlogMindustrySite/Mlog-learning-site/" target="_blank">
+            <button>Main web-site</button>
+            </a>
+        </div>
+    </nav>
+
+    <header>
+        <h2>This is a branch of the main website. Here, you will not only understand the commands but also how to use and apply them correctly in the code.</h2>
+    </header>
+    
+    <main>
+        <h3 id="link1">Timer of game</h3><br>
+        <h5 id="text1inf">
+            op div t1 @time 1000 <br>
+            <span># how we remember time counting in milliseconds, so for get a seconds be need divide @time on 1000 and we get time of game in seconds</span><br>
+            op floor t1 t1 <br>
+            <span># floor it to remove unnecessary numbers</span><br>
+            op div t2 t1 60 <br>
+            <span># divide seconds on 60 for get minutes</span><br>
+            op floor t2 t2 <br>
+            <span># again floor</span><br>
+            op mul y1 t2 60 <br>
+            <span># multiple for get floor'd minutes in seconds</span><br>
+            op sub y1 t1 y1 <br>
+            <span># subtract seconds (t1) - minutes (y1)</span><br>
+            op div t3 t2 60 <br>
+            <span># divide minutes on 60 for get hours</span><br>
+            op floor t3 t3 60 <br>
+            <span># floor'd it</span><br>
+            op mul y2 t3 60 <br>
+            <span># multiple hour(t3) on 60</span><br>
+            op sub y2 t2 y2 <br>
+            <span># subtract minutes(t2) - hours(y2)</span><br>
+            print "[gray]Time of game world: " <br>
+            print "\n" <br>
+            jump 15 equal t3 @null <br>
+            <span># if hours 0 jump to line 15</span><br>
+            print t3 <br>
+            jump 16 always t3 @null <br>
+            print "0" <br>
+            print " h " <br>
+            print "\n" <br>
+            print y2 <br>
+            print " min " <br>
+            print " " <br>
+            print "\n" <br>
+            print y1 <br>
+            print " sec " <br>
+            <span># output to message1</span><br>
+            printflush message1<br>
+            <hr>
+            <button onclick="func1('text1inf' , 'text1')">Show code without instructions</button>
+            <button onclick="copy1('copy1t')">Copy Code</button>
+        </h5>
+        <h5 hidden id="text1">
+            op div t1 @time 1000 <br>
+            op floor t1 t1 1000 <br>
+            op div t2 t1 60 <br>
+            op floor t2 t2 1000 <br>
+            op mul y1 t2 60 <br>
+            op sub y1 t1 y1 <br>
+            op div t3 t2 60 <br>
+            op floor t3 t3 60 <br>
+            op mul y2 t3 60 <br>
+            op sub y2 t2 y2 <br>
+            print "[gray]Time of match: " <br>
+            print "\n" <br>
+            jump 15 equal t3 @null <br>
+            print t3 <br>
+            jump 16 always t3 @null <br>
+            print "0" <br>
+            print " h " <br>
+            print "\n" <br>
+            print y2 <br>
+            print " min " <br>
+            print " " <br>
+            print "\n" <br>
+            print y1 <br>
+            print " sec " <br>
+            printflush message1<br>
+            <hr>
+            <button onclick="func1('text1inf' , 'text1')">Show code with instructions</button>
+            <button onclick="copy1('copy1t')">Copy Code</button>
+        </h5>
+        <p>Copy this code and try it yourself! ( dont forgot connect processor to message block )</p>
+
+        <p hidden id="copy1t">
+op div t1 @time 1000 
+op floor t1 t1 1000 
+op div t2 t1 60 
+op floor t2 t2 1000 
+op mul y1 t2 60 
+op sub y1 t1 y1 
+op div t3 t2 60 
+op floor t3 t3 60 
+op mul y2 t3 60 
+op sub y2 t2 y2 
+print "[gray]Time of match: " 
+print "\n" 
+jump 15 equal t3 @null 
+print t3 
+jump 16 always t3 @null 
+print "0" 
+print " h " 
+print "\n" 
+print y2 
+print " min " 
+print " " 
+print "\n" 
+print y1 
+print " sec " 
+printflush message1
+        </p>
+
+        <br><hr><br>
+
+        <h3 id="link2">#ID search</h3>
+        <p>When using a lookup function in a processor, you may sometimes need to search for the ID of a building, unit, or resource, which can be problematic. To alleviate this issue, you can use the following code:</p>
+        <h5 id="text2inf">
+            jump 13 greaterThanEq num @itemCount<br>
+            <span># @itemCount - count if items in game, if num > then it = num will be set to 0</span><br>
+            <span># you need write a @count of what you need like: if you need find a ID of some building - @blockCount , unit - @unitCount , item - @itemCount , liquid/gas - @liquidCount</span><br>
+            set object1 @something<br>
+            <span># here you need full name of building / item / unit what ID you want find</span><br> 
+            lookup item object2 num <br>
+            <span># here you need write what type of object you need found like: @copper - item , surge-wall - building , flare - unit , water - liquid</span><br>
+            jump 6 equal object2 object1 <br>
+            <span># if object2 ( what fing lookup ) == object1 ( object what ID we need search ) = it's will be print a num ( ID ) in message1</span><br>
+            op add num num 1 <br>
+            <span># if object2 not a object1 code will be add a number to found it</span><br>
+            end <br>
+            print "[green]#ID of " <br>
+            print object1 <br>
+            print " - " <br>
+            print num <br>
+            printflush message1 <br>
+            set num 0 <br>
+            end <br>
+            print "[#cc1]#ID of " <br>
+            print object1 <br>
+            print " not found" <br>
+            printflush message1 <br>
+            set num 0<br> 
+            <hr>
+            <button onclick="func1('text2inf' , 'text2')">Show code without instructions</button>
+            <button onclick="copy1('copy2t')">Copy Code</button>      
+        </h5>
+        <h5 id="text2" hidden>
+            jump 13 greaterThanEq num @itemCount <br>
+            set object1 @blast-compound <br>
+            lookup item object2 num <br>
+            jump 6 equal object2 object1 <br>
+            op add num num 1 <br>
+            end <br>
+            print "[green]#ID of " <br>
+            print object1 <br>
+            print " - " <br>
+            print num <br>
+            printflush message1 <br>
+            set num 0 <br>
+            end <br>
+            print "[#cc1]#ID of " <br>
+            print object1 <br>
+            print " not found" <br>
+            printflush message1 <br>
+            set num 0<br>
+            <hr>
+            <button onclick="func1('text2inf' , 'text2')">Show code without instructions</button>
+            <button onclick="copy1('copy2t')">Copy Code</button>
+        </h5>
+        <p>So to find the ID of corvus, need follow these steps:<br>
+
+            Use "@unitCount" to write the current unit count.<br>
+            In "object1," write "@corvus."<br>
+            In the lookup, specify the unit type.<br>
+            The ID of the corvus will be written in "message1," which you need to connect to the processor.</p>
+        </p>
+
+        <p id="copy2t" hidden>
+jump 13 greaterThanEq num @itemCount 
+set object1 @blast-compound 
+lookup item object2 num 
+jump 6 equal object2 object1 
+op add num num 1 
+end 
+print "[green]#ID of " 
+print object1 
+print " - " 
+print num 
+printflush message1 
+set num 0 
+end 
+print "[#cc1]#ID of " 
+print object1 
+print " not found" 
+printflush message1 
+set num 0
+        </p>
+
+        <br><hr><br>
+        
+        <h3 id="link3">MultiBinding(1)</h3>
+        <p>Example of multibind code for 5 units by Горыныч#3545</p>
+        <h5 id="text3inf">
+            <span># Dedicated multibind controller <br>
+            # It binds and controls multiple units at the same time <br>
+            # Use for transfer, dedicated rc logic </span><br>
+            print "Dedicated multibind controller template 1.0 by Горыныч#3545" <br>
+            set range 100 <span># binding range </span><br>
+            set units 5 <span># max number of units to bind </span><br>
+
+            op shl key @thisx 0x10 <span># unique key generator </span><br>
+            op or key key @thisy <br>
+            op mul ri_max units 2 <br>
+
+            NextUnit: <br>
+            ubind @poly <br>
+            sensor f @unit @flag <br>
+            jump ReadNextRef notEqual f 0 <span># unit is busy </span><br>
+            <br>
+            <span># range check, don't use "within" because it changes @controller </span><br>
+            sensor x @unit @x <br>
+            sensor y @unit @y <br>
+            op sub dx @thisx x <br>
+            op sub dy @thisy y <br>
+            op len d dx dy <br>
+            jump ReadNextRef greaterThan d range <br>
+            <br>
+            ucontrol flag key <br>
+            <br>
+            WriteRef: <br>
+            op add @counter @counter ri <br>
+            <span># using @counter instead of jumps</span><br>
+            set ur0 @unit <br>
+            jump EndWriteNextRef always <br>
+            set ur1 @unit <br>
+            jump EndWriteNextRef always <br>
+            set ur2 @unit <br>
+            jump EndWriteNextRef always <br>
+            set ur3 @unit <br>
+            jump EndWriteNextRef always <br>
+            set ur4 @unit <br>
+            jump EndWriteNextRef always <br>
+            set ur5 @unit <br>
+            jump EndWriteNextRef always <br>
+            <br>
+            ReadNextRef: <br>
+            op add ri ri 2 <br>
+            op mod ri ri ri_max <br>
+            op add @counter @counter ri <br>
+            <span># using @counter instead of jumps</span><br>
+            ubind ur0 <br>
+            jump EndReadNextRef always <br>
+            ubind ur1 <br>
+            jump EndReadNextRef always <br>
+            ubind ur2 <br>
+            jump EndReadNextRef always <br>
+            ubind ur3 <br>
+            jump EndReadNextRef always <br>
+            ubind ur4 <br>
+            jump EndReadNextRef always <br>
+            ubind ur5 <br>
+            EndReadNextRef: <br>
+            EndWriteNextRef: <br>
+
+            jump NextUnit strictEqual @unit null <span># ref is null </span><br>
+            sensor f @unit @flag <br>
+            jump NextUnit notEqual f key <span># unit stolen by processor </span><br>
+            sensor cd @unit @controlled <span># don't check @controller because it might be changed unintentionally </span><br>
+            jump NextUnit greaterThan cd @ctrlProcessor <span># unit stolen by player </span><br>
+            sensor dead @unit @dead <br>
+            jump NextUnit equal dead 1 <span># unit is dead </span><br>
+
+            <span># user code </span><br>
+            ucontrol move @thisx @thisy <br>
+            <br>
+            jump ReadNextRef always<br>
+            <hr>
+            <button onclick="func1('text3inf' , 'text3')">Show code without instructions</button>
+            <button onclick="copy1('copy3t')">Copy Code</button>
+        </h5>
+        <h5 id="text3" hidden>
+            print "Dedicated multibind controller template 1.0 by Горыныч#3545" <br>
+            set range 100  <br>
+            set units 5 <br>
+            <br>
+            op shl key @thisx 0x10  <br>
+            op or key key @thisy <br>
+            op mul ri_max units 2 <br>
+            <br>
+            NextUnit: <br>
+            ubind @poly <br>
+            sensor f @unit @flag <br>
+            jump ReadNextRef notEqual f 0  <br>
+            <br>
+            sensor x @unit @x <br>
+            sensor y @unit @y <br>
+            op sub dx @thisx x <br>
+            op sub dy @thisy y <br>
+            op len d dx dy <br>
+            jump ReadNextRef greaterThan d range <br>
+            <br>
+            ucontrol flag key <br>
+            <br>
+            WriteRef: <br>
+            op add @counter @counter ri <br>
+            set ur0 @unit <br>
+            jump EndWriteNextRef always <br>
+            set ur1 @unit <br>
+            jump EndWriteNextRef always <br>
+            set ur2 @unit <br>
+            jump EndWriteNextRef always <br>
+            set ur3 @unit <br>
+            jump EndWriteNextRef always <br>
+            set ur4 @unit <br>
+            jump EndWriteNextRef always <br>
+            set ur5 @unit <br>
+            jump EndWriteNextRef always <br>
+            <br>
+            ReadNextRef: <br>
+            op add ri ri 2 <br>
+            op mod ri ri ri_max <br>
+            op add @counter @counter ri<br> 
+            ubind ur0 <br>
+            jump EndReadNextRef always <br>
+            ubind ur1 <br>
+            jump EndReadNextRef always <br>
+            ubind ur2 <br>
+            jump EndReadNextRef always <br>
+            ubind ur3 <br>
+            jump EndReadNextRef always <br>
+            ubind ur4 <br>
+            jump EndReadNextRef always <br>
+            ubind ur5 <br>
+            EndReadNextRef: <br>
+            EndWriteNextRef: <br>
+
+            jump NextUnit strictEqual @unit null  <br>
+            sensor f @unit @flag <br>
+            jump NextUnit notEqual f key  <br>
+            sensor cd @unit @controlled  <br>
+            jump NextUnit greaterThan cd @ctrlProcessor  <br>
+            sensor dead @unit @dead <br>
+            jump NextUnit equal dead 1  <br>
+            
+            ucontrol move @thisx @thisy <br>
+            <br>
+            jump ReadNextRef always<br>
+            <hr>
+            <button onclick="func1('text3inf' , 'text3')">Show code without instructions</button>
+            <button onclick="copy1('copy3t')">Copy Code</button>
+        </h5>
+        <p>In the " user code " section, you need to write what actions the unit will perform.</p>
+
+        <p id="copy3t" hidden>
+# Dedicated multibind controller 
+# It binds and controls multiple units at the same time 
+# Use for transfer, dedicated rc logic 
+print "Dedicated multibind controller template 1.0 by Горыныч#3545" 
+set range 100 # binding range 
+set units 5 # max number of units to bind 
+
+op shl key @thisx 0x10 # unique key generator 
+op or key key @thisy 
+op mul ri_max units 2 
+
+NextUnit: 
+ubind @poly 
+sensor f @unit @flag 
+jump ReadNextRef notEqual f 0 # unit is busy 
+
+# range check, don't use "within" because it changes @controller 
+sensor x @unit @x 
+sensor y @unit @y 
+op sub dx @thisx x 
+op sub dy @thisy y 
+op len d dx dy 
+jump ReadNextRef greaterThan d range 
+
+ucontrol flag key 
+
+WriteRef: 
+op add @counter @counter ri 
+set ur0 @unit 
+jump EndWriteNextRef always 
+set ur1 @unit 
+jump EndWriteNextRef always 
+set ur2 @unit 
+jump EndWriteNextRef always 
+set ur3 @unit 
+jump EndWriteNextRef always 
+set ur4 @unit 
+jump EndWriteNextRef always 
+set ur5 @unit 
+jump EndWriteNextRef always 
+
+ReadNextRef: 
+op add ri ri 2 
+op mod ri ri ri_max 
+op add @counter @counter ri 
+ubind ur0 
+jump EndReadNextRef always 
+ubind ur1 
+jump EndReadNextRef always 
+ubind ur2 
+jump EndReadNextRef always 
+ubind ur3 
+jump EndReadNextRef always 
+ubind ur4 
+jump EndReadNextRef always 
+ubind ur5 
+EndReadNextRef: 
+EndWriteNextRef: 
+
+jump NextUnit strictEqual @unit null # ref is null 
+sensor f @unit @flag 
+jump NextUnit notEqual f key # unit stolen by processor 
+sensor cd @unit @controlled # don't check @controller because it might be changed unintentionally 
+jump NextUnit greaterThan cd @ctrlProcessor # unit stolen by player 
+sensor dead @unit @dead 
+jump NextUnit equal dead 1 # unit is dead 
+
+# user code 
+ucontrol move @thisx @thisy 
+
+jump ReadNextRef always
+        </p>
+
+        <br><hr><br>
+
+        <h3 id="link4">MultiBinding(2)</h3>
+        <p>The previous example code of Multi-Binding units was more intended for regular actions. Here's another example where you can change the required resource and block for each unit ( and even different units if desired ) to perform the same action but with different parameters.</p>
+        <h5 id="text4inf">
+            jump next equal loop 1 <br>
+            set loop 1 <br>
+            set num 7 <br>
+            next: <br>
+            <span># unit parameter </span><br>
+            set unit @flare <br>
+            <br>
+            <span># flag creation </span><br>
+            op mul flagX @thisx 10 <br>
+            op add flagger flagX @thisy <br>
+            <br>
+            <span># @counter jump </span><br>
+            set @counter num <br>
+            <span># unit's binding </span><br>
+            u1: <br>
+            ubind u1 <br>
+            <span># added num for @counter </span><br>
+            op add num num 12 <br>
+            <span># parameter for u1 </span><br>
+            set block reactor1 <br>
+            set item @thorium <br>
+            <br>
+            sensor dead1 u1 @dead <br>
+            jump code notEqual dead1 1 <br>
+            ubind unit <br>
+            sensor flag1 @unit @flag <br>
+            jump u1 notEqual flag1 0 <br>
+            set u1 @unit <br>
+            ucontrol flag flagger <br>
+            end <br>
+            u2: <br>
+            ubind u2 <br>
+            <span># added num for @counter </span><br>
+            op add num num 12 <br>
+            <span># parameter for u2 </span><br>
+            set block mixer1 <br>
+            set item @titanium <br>
+            <br>
+            sensor dead2 u2 @dead <br>
+            jump code notEqual dead2 1 <br>
+            ubind unit <br>
+            sensor flag2 @unit @flag <br>
+            jump u2 notEqual flag2 0 <br>
+            set u2 @unit <br>
+            ucontrol flag flagger <br>
+            end <br>
+            u3: <br>
+            ubind u3 <br>
+            <span># added num for @counter </span><br>
+            op add num num 12 <br>
+            <span># parameter for u3 </span><br>
+            set block projector1 <br>
+            set item @phase-fabric <br>
+            <br>
+            sensor dead3 u3 @dead <br>
+            jump code notEqual dead3 1 <br>
+            ubind unit <br>
+            sensor flag3 @unit @flag <br>
+            jump u3 notEqual flag3 0 <br>
+            set u3 @unit <br>
+            ucontrol flag flagger <br>
+            end <br>
+            <span># resetting the variable num to zero </span><br>
+            set loop 0 <br>
+            set num 0 <br>
+            end <br>
+            code: <br>
+            <span># user code </span><br>
+            jump delete notEqual unit savedUnit <br>
+            <span># if old unit not new - unbinding </span><br>
+            ulocate building core false @null xCore yCore found core <br>
+            sensor FI @unit @firstItem <br>
+            sensor IC @unit @itemCapacity <br>
+            ucontrol boost 1 <br>
+            jump itemT equal FI @null <br>
+            jump itemD notEqual FI item <br>
+            <span># basic sortering </span><br>
+            ucontrol move @thisx @thisy <br>
+            ucontrol itemDrop block IC <br>
+            <span># If the item in the unit is not null and it is the needed item, then go to the processor and drop the item into the block </span><br>
+            end <br>
+            itemT: <br>
+            ucontrol approach xCore yCore 6 <br>
+            ucontrol itemTake core item IC <br>
+            <span># If the item in the unit is null, the unit go to the core to take the needed item </span><br>
+            end <br>
+            itemD: <br>
+            ucontrol approach xCore yCore 6 <br>
+            ucontrol itemDrop core IC <br>
+            <span># If the item in the unit is not null but not the needed item, go to the core to drop it </span><br>
+            <span># you can delete a " ucontrol approach xCore yCore 6 " and in " ucontrol itemDrop core IC " do " ucontrol itemDrop @air IC " for drop a wrong items to air </span><br>
+            end <br>
+            delete: <br>
+            <span># set 0 flag to all unit's and deleting they object </span><br>
+            set savedUnit unit <br>
+            ubind u1 <br>
+            ucontrol flag 0 <br>
+            set u1 @null <br>
+            ubind u2 <br>
+            ucontrol flag 0 <br>
+            set u2 @null <br>
+            ubind u3 <br>
+            ucontrol flag 0 <br>
+            set u3 @null<br>
+            <hr>
+            <button onclick="func1('text4inf' , 'text4')">Show code without instructions</button>
+            <button onclick="copy1('copy4t')">Copy Code</button>
+        </h5>
+        <h5 id="text4" hidden>
+            jump next equal loop 1 <br>
+            set loop 1 <br>
+            set num 7 <br>
+            next: <br>
+            set unit @flare <br>
+             <br>
+            op mul flagX @thisx 10 <br>
+            op add flagger flagX @thisy <br>
+             <br>
+            set @counter num <br>
+            u1: <br>
+            ubind u1 <br>
+            op add num num 12 <br>
+            set block reactor1 <br>
+            set item @thorium <br>
+            <br>
+            sensor dead1 u1 @dead <br>
+            jump code notEqual dead1 1 <br>
+            ubind unit <br>
+            sensor flag1 @unit @flag <br>
+            jump u1 notEqual flag1 0 <br>
+            set u1 @unit <br>
+            ucontrol flag flagger <br>
+            end <br>
+            u2: <br>
+            ubind u2 <br>
+            op add num num 12 <br>
+            set block mixer1 <br>
+            set item @titanium <br>
+            <br>
+            sensor dead2 u2 @dead <br>
+            jump code notEqual dead2 1 <br>
+            ubind unit <br>
+            sensor flag2 @unit @flag <br>
+            jump u2 notEqual flag2 0 <br>
+            set u2 @unit <br>
+            ucontrol flag flagger <br>
+            end <br>
+            u3: <br>
+            ubind u3 <br>
+            op add num num 12  <br>
+            set block projector1 <br>
+            set item @phase-fabric <br>
+            <br>
+            sensor dead3 u3 @dead <br>
+            jump code notEqual dead3 1 <br>
+            ubind unit <br>
+            sensor flag3 @unit @flag <br>
+            jump u3 notEqual flag3 0 <br>
+            set u3 @unit <br>
+            ucontrol flag flagger <br>
+            end  <br>
+            set loop 0 <br>
+            set num 0 <br>
+            end <br>
+            <br>
+            code: <br>
+            jump delete notEqual unit savedUnit <br>
+            ulocate building core false @null xCore yCore found core <br>
+            sensor FI @unit @firstItem <br>
+            sensor IC @unit @itemCapacity <br>
+            ucontrol boost 1 <br>
+            jump itemT equal FI @null <br>
+            jump itemD notEqual FI item <br>
+            ucontrol move @thisx @thisy <br>
+            ucontrol itemDrop block IC <br>
+            end <br>
+            itemT: <br>
+            ucontrol approach xCore yCore 6 <br>
+            ucontrol itemTake core item IC <br>
+            end <br>
+            itemD: <br>
+            ucontrol approach xCore yCore 6 <br>
+            ucontrol itemDrop core IC <br>
+            end <br>
+            delete: <br>
+            set savedUnit unit<br> 
+            ubind u1 <br>
+            ucontrol flag 0 <br>
+            set u1 @null <br>
+            ubind u2 <br>
+            ucontrol flag 0 <br>
+            set u2 @null <br>
+            ubind u3 <br>
+            ucontrol flag 0 <br>
+            set u3 @null<br>
+            
+            <hr>
+            <button onclick="func1('text4inf' , 'text4')">Show code without instructions</button>
+            <button onclick="copy1('copy4t')">Copy Code</button>
+        </h5>
+
+        <p id="copy4t" hidden>
+jump next equal loop 1 
+set loop 1 
+set num 7 
+next: 
+# unit parameter 
+set unit @flare 
+
+# flag creation 
+op mul flagX @thisx 10 
+op add flagger flagX @thisy 
+
+# @counter jump 
+set @counter num 
+# unit's binding 
+u1: 
+ubind u1 
+# added num for @counter 
+op add num num 12 
+# parameter for u1 
+set block reactor1 
+set item @thorium 
+
+sensor dead1 u1 @dead 
+jump code notEqual dead1 1 
+ubind unit 
+sensor flag1 @unit @flag 
+jump u1 notEqual flag1 0 
+set u1 @unit 
+ucontrol flag flagger 
+end 
+u2: 
+ubind u2 
+# added num for @counter 
+op add num num 12 
+# parameter for u2 
+set block mixer1 
+set item @titanium 
+
+sensor dead2 u2 @dead 
+jump code notEqual dead2 1 
+ubind unit 
+sensor flag2 @unit @flag 
+jump u2 notEqual flag2 0 
+set u2 @unit 
+ucontrol flag flagger 
+end 
+u3: 
+ubind u3 
+# added num for @counter 
+op add num num 12 
+# parameter for u3 
+set block projector1 
+set item @phase-fabric 
+
+sensor dead3 u3 @dead 
+jump code notEqual dead3 1 
+ubind unit 
+sensor flag3 @unit @flag 
+jump u3 notEqual flag3 0 
+set u3 @unit 
+ucontrol flag flagger 
+end 
+# resetting the variable num to zero 
+set loop 0 
+set num 0 
+end 
+code: 
+# user code 
+jump delete notEqual unit savedUnit 
+# if old unit not new - unbinding 
+ulocate building core false @null xCore yCore found core 
+sensor FI @unit @firstItem 
+sensor IC @unit @itemCapacity 
+ucontrol boost 1 
+jump itemT equal FI @null 
+jump itemD notEqual FI item 
+# basic sortering 
+ucontrol move @thisx @thisy 
+ucontrol itemDrop block IC 
+# If the item in the unit is not null and it is the needed item, then go to the processor and drop the item into the block 
+end 
+itemT: 
+ucontrol approach xCore yCore 6 
+ucontrol itemTake core item IC 
+# If the item in the unit is null, the unit go to the core to take the needed item 
+end 
+itemD: 
+ucontrol approach xCore yCore 6 
+ucontrol itemDrop core IC 
+# If the item in the unit is not null but not the needed item, go to the core to drop it 
+# you can delete a " ucontrol approach xCore yCore 6 " and in " ucontrol itemDrop core IC " do " ucontrol itemDrop @air IC " for drop a wrong items to air 
+end 
+delete: 
+# set 0 flag to all unit's and deleting they object 
+set savedUnit unit 
+ubind u1 
+ucontrol flag 0 
+set u1 @null 
+ubind u2 
+ucontrol flag 0 
+set u2 @null 
+ubind u3 
+ucontrol flag 0 
+set u3 @null
+        </p>
+
+        <br><hr><br>
+
+        <h3 id="link5">Mining</h3>
+        <p>In this example you can change a setings, what unit will be mining, what resourse you need and how many units will be mining.</p>
+        <h5 id="text5inf">
+            <span># settings</span><br>
+            set unit @mega<br>
+            set copper 1<br>
+            set lead 1<br>
+            set coal 1<br>
+            set sand 1<br>
+            set titanium 1<br>
+            set scrap 1<br>
+            set beryllium 1<br>
+            set maxUnit 5<br>
+            <br>
+            <span># flag creator</span><br>
+            op mul flagX @thisx 10<br>
+            op add flagger flagX @thisy<br>
+            <br>
+            <span># If you have changed the variable representing the number of units to a different value, the code needs to be updated to calculate the total number of units and how many units need to be bound accordingly</span><br>
+            jump counting notEqual maxUnit maxUnit2<br>
+            <span># if bounded units to many code will unbind ssome units to do normal count</span><br>
+            jump delete greaterThan num maxUnit<br>
+            <br>
+            <span># timer for restart counting bound units</span><br>
+            jump time equal loop1 1<br>
+            op add timeOut @time 10000<br>
+            set loop1 1<br>
+            time:<br>
+            jump counting greaterThan @time timeOut<br>
+            ubind unit<br>
+            sensor flag @unit @flag<br>
+            jump code equal flag flagger<br>
+            jump time notEqual flag 0<br>
+            jump time greaterThanEq num maxUnit<br>
+            ucontrol flag flagger<br>
+            op add num num 1<br>
+            end<br>
+            <br>
+            <span># item filters</span><br>
+            code:<br>
+            ulocate building core false @null x y found core<br>
+            sensor item1 core @copper<br>
+            sensor item2 core @lead<br>
+            sensor item3 core @coal<br>
+            sensor item4 core @sand<br>
+            sensor item5 core @titanium<br>
+            sensor item6 core @scrap<br>
+            sensor item7 core @beryllium<br>
+            <br>
+            jump item2 equal copper 0<br>
+            jump item2 greaterThanEq item1 item2<br>
+            set item @copper<br>
+            jump mining always x x<br>
+            <br>
+            item2:<br>
+            jump item3 equal lead 0<br>
+            jump item3 greaterThan item2 item3<br>
+            set item @lead<br>
+            jump mining always x x<br>
+            <br>
+            item3:<br>
+            jump item4 equal coal 0<br>
+            jump item4 greaterThanEq item3 item4<br>
+            set item @coal<br>
+            jump mining always x x<br>
+            <br>
+            item4:<br>
+            jump item5 equal sand 0<br>
+            jump item5 greaterThanEq item4 item5<br>
+            set item @sand<br>
+            jump mining always x x<br>
+            <br>
+            item5:<br>
+            jump item6 equal titanium 0<br>
+            jump item6 greaterThanEq item5 item6<br>
+            set item @titanium<br>
+            jump mining always x x<br>
+            <br>
+            item6:<br>
+            jump item7 equal scrap 0<br>
+            jump item7 greaterThanEq item6 item7<br>
+            set item @scrap<br>
+            jump mining always x x<br>
+            <br>
+            item7:<br>
+            jump rally equal beryllium 0<br>
+            jump rally equal item7 item6<br>
+            set item @beryllium<br>
+            <br>
+            <span># mining code</span><br>
+            mining:<br>
+            ulocate ore core true item xO yO found building<br>
+            <br>
+            sensor IC @unit @itemCapacity<br>
+            sensor FI @unit @firstItem<br>
+            sensor TI @unit @totalItems<br>
+            jump mine equal FI @null<br>
+            jump dropCore notEqual FI item<br>
+            jump dropCore equal TI IC<br>
+            end<br>
+            mine:<br>
+            ucontrol boost 1<br>
+            ucontrol approach xO yO 6<br>
+            ucontrol mine xO yO<br>
+            end<br>
+            dropCore:<br>
+            sensor ICc core @itemCapacity<br>
+            sensor ITc core item<br>
+            jump dropAir equal ITc ICc<br>
+            ucontrol approach x y 6<br>
+            ucontrol itemDrop core IC<br>
+            end<br>
+            <span># drop item to air if core fulled</span><br>
+            dropAir:<br>
+            ucontrol itemDrop @air IC<br>
+            end<br>
+            <br>
+            <span># unit counter</span><br>
+            counting:<br>
+            set num 0<br>
+            ubind unit<br>
+            sensor flag4 @unit @flag<br>
+            jump end equal @unit @null<br>
+            set u1 @unit<br>
+            jump new equal flag4 flagger<br>
+            <br>
+            loop2:<br>
+            ubind unit<br>
+            sensor flag2 @unit @flag<br>
+            sensor dead u1 @dead<br>
+            jump counting equal dead 1<br>
+            jump end equal @unit u1<br>
+            jump loop2 notEqual flag2 flagger<br>
+            <br>
+            new:<br>
+            op add num num 1<br>
+            jump loop2 always<br>
+            <br>
+            <span># unit counted</span><br>
+            end:<br>
+            set loop1 0<br>
+            set maxUnit2 maxUnit<br>
+            end<br>
+            <br>
+            <span># unbinding unit</span><br>
+            delete:<br>
+            ubind unit<br>
+            sensor flag3 @unit @flag<br>
+            jump delete notEqual flag3 flagger<br>
+            ucontrol flag 0<br>
+            ucontrol unbind<br>
+            op sub num num 1<br>
+            end<br>
+            <br>
+            rally:<br>
+            ucontrol approach @thisx @thisy 10<br>
+            <hr>
+            <button onclick="func1('text5inf' , 'text5')">Show code without instructions</button>
+            <button onclick="copy1('copy5t')">Copy Code</button>           
+        </h5>
+        <h5 id="text5" hidden>
+            set unit @mega<br>
+            set copper 1<br>
+            set lead 1<br>
+            set coal 1<br>
+            set sand 1<br>
+            set titanium 1<br>
+            set scrap 1<br>
+            set beryllium 1<br>
+            set maxUnit 5<br>
+            <br>
+            op mul flagX @thisx 10<br>
+            op add flagger flagX @thisy<br>
+            <br>
+            jump counting notEqual maxUnit maxUnit2<br>
+            jump delete greaterThan num maxUnit<br>
+            <br>
+            jump time equal loop1 1<br>
+            op add timeOut @time 10000<br>
+            set loop1 1<br>
+            time:<br>
+            jump counting greaterThan @time timeOut<br>
+            ubind unit<br>
+            sensor flag @unit @flag<br>
+            jump code equal flag flagger<br>
+            jump time notEqual flag 0<br>
+            jump time greaterThanEq num maxUnit<br>
+            ucontrol flag flagger<br>
+            op add num num 1<br>
+            end<br>
+            <br>
+            code:<br>
+            ulocate building core false @null x y found core<br>
+            sensor item1 core @copper<br>
+            sensor item2 core @lead<br>
+            sensor item3 core @coal<br>
+            sensor item4 core @sand<br>
+            sensor item5 core @titanium<br>
+            sensor item6 core @scrap<br>
+            sensor item7 core @beryllium<br>
+            <br>
+            jump item2 equal copper 0<br>
+            jump item2 greaterThanEq item1 item2<br>
+            set item @copper<br>
+            jump mining always x x<br>
+            <br>
+            item2:<br>
+            jump item3 equal lead 0<br>
+            jump item3 greaterThan item2 item3<br>
+            set item @lead<br>
+            jump mining always x x<br>
+            <br>
+            item3:<br>
+            jump item4 equal coal 0<br>
+            jump item4 greaterThanEq item3 item4<br>
+            set item @coal<br>
+            jump mining always x x<br>
+            <br>
+            item4:<br>
+            jump item5 equal sand 0<br>
+            jump item5 greaterThanEq item4 item5<br>
+            set item @sand<br>
+            jump mining always x x<br>
+            <br>
+            item5:<br>
+            jump item6 equal titanium 0<br>
+            jump item6 greaterThanEq item5 item6<br>
+            set item @titanium<br>
+            jump mining always x x<br>
+            <br>
+            item6:<br>
+            jump item7 equal scrap 0<br>
+            jump item7 greaterThanEq item6 item7<br>
+            set item @scrap<br>
+            jump mining always x x<br>
+            <br>
+            item7:<br>
+            jump rally equal beryllium 0<br>
+            jump rally equal item7 item6<br>
+            set item @beryllium<br>
+            <br>
+            mining:<br>
+            ulocate ore core true item xO yO found building<br>
+            <br>
+            sensor IC @unit @itemCapacity<br>
+            sensor FI @unit @firstItem<br>
+            sensor TI @unit @totalItems<br>
+            jump mine equal FI @null<br>
+            jump dropCore notEqual FI item<br>
+            jump dropCore equal TI IC<br>
+            end<br>
+            mine:<br>
+            ucontrol boost 1<br>
+            ucontrol approach xO yO 6<br>
+            ucontrol mine xO yO<br>
+            end<br>
+            dropCore:<br>
+            sensor ICc core @itemCapacity<br>
+            sensor ITc core item<br>
+            jump dropAir equal ITc ICc<br>
+            ucontrol approach x y 6<br>
+            ucontrol itemDrop core IC<br>
+            end<br>
+            dropAir:<br>
+            ucontrol itemDrop @air IC<br>
+            end<br>
+            <br>
+            counting:<br>
+            set num 0<br>
+            ubind unit<br>
+            sensor flag4 @unit @flag<br>
+            jump end equal @unit @null<br>
+            set u1 @unit<br>
+            jump new equal flag4 flagger<br>
+            <br>
+            loop2:<br>
+            ubind unit<br>
+            sensor flag2 @unit @flag<br>
+            sensor dead u1 @dead<br>
+            jump counting equal dead 1<br>
+            jump end equal @unit u1<br>
+            jump loop2 notEqual flag2 flagger<br>
+            <br>
+            new:<br>
+            op add num num 1<br>
+            jump loop2 always<br>
+            <br>
+            end:<br>
+            set loop1 0<br>
+            set maxUnit2 maxUnit<br>
+            end<br>
+            <br>
+            delete:<br>
+            ubind unit<br>
+            sensor flag3 @unit @flag<br>
+            jump delete notEqual flag3 flagger<br>
+            ucontrol flag 0<br>
+            ucontrol unbind<br>
+            op sub num num 1<br>
+            end<br>
+            <br>
+            rally:<br>
+            ucontrol approach @thisx @thisy 10<br>
+            
+            <hr>
+            <button onclick="func1('text5inf' , 'text5')">Show code without instructions</button>
+            <button onclick="copy1('copy5t')">Copy Code</button>
+        </h5>
+        <p> If you want a specific resource to be excluded from mining, you can set its value to 0 at the beginning of the code. On the other hand, if you want it to be included in the mining process, you can set its value to 1. This way, you can control whether a particular resource should be mined or not by modifying its corresponding value in the code</p>
+
+        <p id="copy5t" hidden>
+set unit @mega
+set copper 1
+set lead 1
+set coal 1
+set sand 1
+set titanium 1
+set scrap 1
+set beryllium 1
+set maxUnit 5
+
+op mul flagX @thisx 10
+op add flagger flagX @thisy
+
+jump counting notEqual maxUnit maxUnit2
+jump delete greaterThan num maxUnit
+
+jump time equal loop1 1
+op add timeOut @time 10000
+set loop1 1
+time:
+jump counting greaterThan @time timeOut
+ubind unit
+sensor flag @unit @flag
+jump code equal flag flagger
+jump time notEqual flag 0
+jump time greaterThanEq num maxUnit
+ucontrol flag flagger
+op add num num 1
+end
+
+code:
+ulocate building core false @null x y found core
+sensor item1 core @copper
+sensor item2 core @lead
+sensor item3 core @coal
+sensor item4 core @sand
+sensor item5 core @titanium
+sensor item6 core @scrap
+sensor item7 core @beryllium
+
+jump item2 equal copper 0
+jump item2 greaterThanEq item1 item2
+set item @copper
+jump mining always x x
+
+item2:
+jump item3 equal lead 0
+jump item3 greaterThan item2 item3
+set item @lead
+jump mining always x x
+
+item3:
+jump item4 equal coal 0
+jump item4 greaterThanEq item3 item4
+set item @coal
+jump mining always x x
+
+item4:
+jump item5 equal sand 0
+jump item5 greaterThanEq item4 item5
+set item @sand
+jump mining always x x
+
+item5:
+jump item6 equal titanium 0
+jump item6 greaterThanEq item5 item6
+set item @titanium
+jump mining always x x
+
+item6:
+jump item7 equal scrap 0
+jump item7 greaterThanEq item6 item7
+set item @scrap
+jump mining always x x
+
+item7:
+jump rally equal beryllium 0
+jump rally equal item7 item6
+set item @beryllium
+
+mining:
+ulocate ore core true item xO yO found building
+
+sensor IC @unit @itemCapacity
+sensor FI @unit @firstItem
+sensor TI @unit @totalItems
+jump mine equal FI @null
+jump dropCore notEqual FI item
+jump dropCore equal TI IC
+end
+mine:
+ucontrol boost 1
+ucontrol approach xO yO 6
+ucontrol mine xO yO
+end
+dropCore:
+sensor ICc core @itemCapacity
+sensor ITc core item
+jump dropAir equal ITc ICc
+ucontrol approach x y 6
+ucontrol itemDrop core IC
+end
+dropAir:
+ucontrol itemDrop @air IC
+end
+
+counting:
+set num 0
+ubind unit
+sensor flag4 @unit @flag
+jump end equal @unit @null
+set u1 @unit
+jump new equal flag4 flagger
+
+loop2:
+ubind unit
+sensor flag2 @unit @flag
+sensor dead u1 @dead
+jump counting equal dead 1
+jump end equal @unit u1
+jump loop2 notEqual flag2 flagger
+
+new:
+op add num num 1
+jump loop2 always
+
+end:
+set loop1 0
+set maxUnit2 maxUnit
+end
+
+delete:
+ubind unit
+sensor flag3 @unit @flag
+jump delete notEqual flag3 flagger
+ucontrol flag 0
+ucontrol unbind
+op sub num num 1
+end
+
+rally:
+ucontrol approach @thisx @thisy 10
+        </p>
+
+        <br><hr><br>
+
+        <h3 id="link6">AI attack</h3>
+        <p>
+            This code very good for auto attack the enemy, tis have 3 mode:<br>
+            Rally( copper ) Zenith waits around the processor and can attack enemy units<br>
+            Attack ( lead )  Zenith goes to the enemy core. If it encounters a turret, it attacks it. If it sees enemy units, it goes to them and attacks. It also attacks generators and eventually the core. If Zenith has low HP, it goes to a repair mender. If there is no repair mender on the map, Zenith goes to the processor in Rally mode. The priority order is HP > enemy units > turrets > core > generators.<br>
+            Suicide ( metaglass )  Zenith takes an item from the core specified in the variable "suicideItem" and goes to the enemy core.
+        </p>
+        <h5 id="text6inf">
+            <span># universal AI-attack for zenith </span><br>
+            set suicideItem @pyratite <br>
+            <br>
+            <span># flag creation </span><br>
+            op mul flagX @thisx 10 <br>
+            op add flagger flagX @thisy <br>
+            <br>
+            <span># binding </span><br>
+            bind: <br>
+            ubind @zenith <br>
+            sensor flag @unit @flag <br>
+            jump code equal flag flagger <br>
+            jump bind notEqual flag 0 <br>
+            ucontrol flag flagger <br>
+            end <br>
+            code: <br>
+            <span># change mode's by sorter </span><br>
+            sensor mode sorter1 @config <br>
+            jump rally equal mode @copper <br>
+            jump attack1 equal mode @lead <br>
+            jump suicide equal mode @metaglass <br>
+            end <br>
+            rally: <br>
+            ucontrol approach @thisx @thisy 20 <br>
+            uradar enemy any any distance 0 1 enemy1 <br>
+            <span># search enemy </span><br>
+            jump 0 equal enemy1 0 <br>
+            ucontrol target enemy1 1 <br>
+            end <br>
+            <br>
+            attack1: <br>
+            <span># search enemy core , power and turret's </span><br>
+            ulocate building core true @null coreX coreY found enemyCore <br>
+            ulocate building turret true @null turrX turrY turret building <br>
+            ulocate building generator true @null powX powY found power <br>
+            <br>
+            <span># search ally repair and core </span><br>
+            ulocate building repair false @null repX repY repF repair <br>
+            <br>
+            <span># health </span><br>
+            sensor health @unit @health <br>
+            sensor Mhealth @unit @maxHealth <br>
+            op div Mhealth Mhealth 2 <br>
+            jump attack2 greaterThan health Mhealth <br>
+            heal: <br>
+            <span># if you dont have a repair on map unit's with low HP will go to rally mode </span><br>
+            jump rally equal repF 0 <br>
+            ucontrol move repX repY <br>
+            end <br>
+            attack2: <br>
+            <span># search enemy unit's around zenith </span><br>
+            uradar enemy any any distance 0 1 enemy2 <br>
+            <br>
+            jump attack3 equal enemy2 0 <br>
+            <span># attack enemy unit's </span><br>
+            ucontrol targetp enemy2 1 <br>
+            sensor xE2 enemy2 @x <br>
+            sensor yE2 enemy2 @y <br>
+            ucontrol approach xE2 yE2 18 <br>
+            end <br>
+            <br>
+            attack3: <br>
+            <span># search turret around unit's</span><br>
+            ucontrol within turrX turrY 30 turr <br>
+            jump attack4 equal turret 0 <br>
+            jump attack4 equal turr 0 <br>
+            <span># attack enemy turret's </span><br>
+            ucontrol approach turrX turrY 18 <br>
+            ucontrol target turrX turrY 1 <br>
+            end <br>
+            attack4: <br>
+            ucontrol within coreX coreY 20 corr <br>
+            jump attack5 equal corr 0 <br>
+            <span># attack enemy core </span><br>
+            ucontrol approach coreX coreY 18 <br>
+            ucontrol target coreX coreY 1 <br>
+            end <br>
+            attack5: <br>
+            ucontrol approach coreX coreY 18 <br>
+            ucontrol within powX powY 18 poww <br>
+            jump 0 equal poww 0 <br>
+            <span># attack enemy power </span><br>
+            ucontrol target powX powY 1 <br>
+            end <br>
+            suicide: <br>
+            <span>
+                # zenith go to enemy core <br>
+                When a unit dies and crashes on the floor, it does a small amount of damage. However, if the unit has items in its inventory, the damage will be greater.<br>
+                (Thorium causes more damage, Spore-pod / Pyratite adds a fire effecte, Blast-compound adds both fire and additional damage.)
+            </span><br>
+            sensor FI @unit @firstItem <br>
+            ulocate building core false @null x y found core <br>
+            jump dropItem notEqual FI suicideItem <br>
+            ulocate building core true @null coreX coreY found enemyCore <br>
+            ucontrol move coreX coreY <br>
+            ucontrol target coreX coreY 1 <br>
+            end <br>
+            dropItem: <br>
+            <span># take item's</span><br>
+            ucontrol approach x y 5 <br>
+            jump takeItem equal FI @null <br> 
+            ucontrol itemDrop core 999 <br> 
+            end <br> 
+            takeItem: <br> 
+            ucontrol itemTake core suicideItem 10 <br>           
+            <hr>
+            <button onclick="func1('text6inf' , 'text6')">Show code without instructions</button>
+            <button onclick="copy1('copy6t')">Copy Code</button>
+        </h5>
+        <h5 id="text6" hidden>
+            set suicideItem @pyratite <br>
+            <br> 
+            op mul flagX @thisx 10 <br>
+            op add flagger flagX @thisy <br>
+            <br> 
+            bind: <br>
+            ubind @zenith <br>
+            sensor flag @unit @flag <br>
+            jump code equal flag flagger <br>
+            jump bind notEqual flag 0 <br>
+            ucontrol flag flagger <br>
+            end <br>
+            <br> 
+            code: <br>
+            sensor mode sorter1 @config <br>
+            jump rally equal mode @copper <br>
+            jump attack1 equal mode @lead <br>
+            jump suicide equal mode @metaglass <br>
+            end <br>
+            <br> 
+            rally: <br>
+            ucontrol approach @thisx @thisy 20 <br>
+            uradar enemy any any distance 0 1 enemy1 <br>
+            jump 0 equal enemy1 0 <br>
+            ucontrol target enemy1 1 <br>
+            end <br>
+            <br> 
+            attack1: <br>
+            ulocate building core true @null coreX coreY found enemyCore <br>
+            ulocate building turret true @null turrX turrY turret building <br>
+            ulocate building generator true @null powX powY found power <br>
+            ulocate building repair false @null repX repY repF repair <br>
+            sensor health @unit @health <br>
+            sensor Mhealth @unit @maxHealth <br>
+            op div Mhealth Mhealth 2 <br>
+            jump attack2 greaterThan health Mhealth <br>
+            jump rally equal repF 0 <br>
+            ucontrol move repX repY <br>
+            end <br>
+            <br> 
+            attack2: <br>
+            uradar enemy any any distance 0 1 enemy2 <br>
+            jump attack3 equal enemy2 0 <br>
+            ucontrol targetp enemy2 1 <br>
+            sensor xE2 enemy2 @x <br>
+            sensor yE2 enemy2 @y <br>
+            ucontrol approach xE2 yE2 18 <br>
+            end <br>
+            <br> 
+            attack3: <br>
+            ucontrol within turrX turrY 30 turr <br>
+            jump attack4 equal turret 0 <br>
+            jump attack4 equal turr 0 <br>
+            ucontrol approach turrX turrY 18 <br>
+            ucontrol target turrX turrY 1 <br>
+            end <br>
+            <br> 
+            attack4: <br>
+            ucontrol within coreX coreY 20 corr <br>
+            jump attack5 equal corr 0 <br>
+            ucontrol approach coreX coreY 18 <br>
+            ucontrol target coreX coreY 1 <br>
+            end <br>
+            <br> 
+            attack5: <br>
+            ucontrol approach coreX coreY 18 <br>
+            ucontrol within powX powY 18 poww <br>
+            jump 0 equal poww 0 <br>
+            ucontrol target powX powY 1 <br>
+            end <br>
+            <br> 
+            suicide: <br>
+            sensor FI @unit @firstItem <br>
+            ulocate building core false @null x y found core <br>
+            jump dropItem notEqual FI suicideItem <br>
+            ulocate building core true @null coreX coreY found enemyCore <br>
+            ucontrol move coreX coreY <br>
+            ucontrol target coreX coreY 1 <br>
+            end <br>
+            <br> 
+            dropItem: <br>
+            ucontrol approach x y 5 <br>
+            jump takeItem equal FI @null <br> 
+            ucontrol itemDrop core 999 <br> 
+            end <br> 
+            <br> 
+            takeItem: <br> 
+            ucontrol itemTake core suicideItem 10 <br>
+            <hr>
+            <button onclick="func1('text6inf' , 'text6')">Show code without instructions</button>
+            <button onclick="copy1('copy6t')">Copy Code</button>
+        </h5>
+        <p></p>
+
+        <p id="copy6t" hidden>
+set suicideItem @pyratite
+op mul flagX @thisx 10
+op add flagger flagX @thisy
+bind:
+ubind @zenith
+sensor flag @unit @flag
+jump code equal flag flagger
+jump bind notEqual flag 0
+ucontrol flag flagger
+end
+code:
+sensor mode sorter1 @config
+jump rally equal mode @copper
+jump attack1 equal mode @lead
+jump suicide equal mode @metaglass
+end
+rally:
+ucontrol approach @thisx @thisy 20
+uradar enemy any any distance 0 1 enemy1
+jump 0 equal enemy1 0
+ucontrol target enemy1 1
+end
+attack1:
+ulocate building core true @null coreX coreY found enemyCore
+ulocate building turret true @null turrX turrY turret building
+ulocate building generator true @null powX powY found power
+ulocate building repair false @null repX repY repF repair
+sensor health @unit @health
+sensor Mhealth @unit @maxHealth
+op div Mhealth Mhealth 2
+jump attack2 greaterThan health Mhealth
+jump rally equal repF 0
+ucontrol move repX repY
+end
+attack2:
+uradar enemy any any distance 0 1 enemy2
+jump attack3 equal enemy2 0
+ucontrol targetp enemy2 1
+sensor xE2 enemy2 @x
+sensor yE2 enemy2 @y
+ucontrol approach xE2 yE2 18
+end
+attack3:
+ucontrol within turrX turrY 30 turr
+jump attack4 equal turret 0
+jump attack4 equal turr 0
+ucontrol approach turrX turrY 18
+ucontrol target turrX turrY 1
+end
+attack4:
+ucontrol within coreX coreY 20 corr
+jump attack5 equal corr 0
+ucontrol approach coreX coreY 18
+ucontrol target coreX coreY 1
+end
+attack5:
+ucontrol approach coreX coreY 18
+ucontrol within powX powY 18 poww
+jump 0 equal poww 0
+ucontrol target powX powY 1
+end
+suicide:
+sensor FI @unit @firstItem
+ulocate building core false @null x y found core
+jump dropItem notEqual FI suicideItem
+ulocate building core true @null coreX coreY found enemyCore
+ucontrol move coreX coreY
+ucontrol target coreX coreY 1
+end
+dropItem:
+ucontrol approach x y 5
+jump takeItem equal FI @null
+ucontrol itemDrop core 999
+end
+takeItem:
+ucontrol itemTake core suicideItem 10
+        </p>
+
+        <br><hr><br>
+
+        <h3 id="link7">Turret Target</h3>
+        <p>I will show a code what will control turret  to shoot on player cursor</p>
+        <h5 id="text7inf">
+            getlink link num<br>
+            <span># checking players around processor</span><br>
+            radar ally player any distance @this 1 pl<br>
+            <span># if there are no players around the processor, the turrets will be set to default shooting mode</span><br>
+            jump 0 equal pl 0<br>
+            <span># if a player is found but they are not shooting, the turrets will be set to default shooting mode</span><br>
+            sensor shoot pl @shooting<br>
+            jump 0 equal shoot 0<br>
+            <span># sensor x and y of player cursor</span><br>
+            sensor x pl @shootX<br>
+            sensor y pl @shootY<br>
+            <span># control turrets shoot to x y of player cursor</span><br>
+            control shoot link x y 1<br>
+            op add num num 1<br>
+            jump 0 lessThan num @links<br>
+            set num 0<br>
+            <hr>
+            <button onclick="func1('text7inf' , 'text7')">Show code without instructions</button>
+            <button onclick="copy1('copy7t')">Copy Code</button>
+        </h5>
+        <h5 id="text7" hidden>
+            getlink link num<br>
+            radar ally player any distance @this 1 pl<br>
+            jump 0 equal pl 0<br>
+            sensor shoot pl @shooting<br>
+            jump 0 equal shoot 0<br>
+            sensor x pl @shootX<br>
+            sensor y pl @shootY<br>
+            control shoot link x y 1<br>
+            op add num num 1<br>
+            jump 0 lessThan num @links<br>
+            set num 0<br>
+            <hr>
+            <button onclick="func1('text7inf' , 'text7')">Show code without instructions</button>
+            <button onclick="copy1('copy7t')">Copy Code</button>
+        </h5>
+
+        <p id="copy7t" hidden>
+getlink link num
+radar ally player any distance @this 1 pl
+jump 0 equal pl 0
+sensor shoot pl @shooting
+jump 0 equal shoot 0
+sensor x pl @shootX
+sensor y pl @shootY
+control shoot link x y 1
+op add num num 1
+jump 0 lessThan num @links
+set num 0
+        </p>
+
+        <br><hr><br>
+
+        <h3 id="link8">Unit Control</h3>
+        <p>Simply control unit's by turret, you need connect processor to arc ( or any other turret ) for code work</p>
+        <h5 id="text8inf">
+            getlink turret 0<br>
+            <span># if contr 0 units will goes to processor ( rally )</span><br>
+            sensor contr turret controller<br>
+            <span># you can select unit what you want</span><br>
+            ubind @flare<br>
+            <span># flag checking</span><br>
+            sensor flag @unit @flag<br>
+            jump 0 notEqual flag 0<br>
+            <span># sensor shoot range in units</span><br>
+            sensor radius @unit @range<br>
+            jump rally equal contr 0<br>
+            sensor x turret @shootX<br>
+            sensor y turret @shootY<br>
+            ucontrol approach x y radius<br>
+            ucontrol target x y 1<br>
+            end<br>
+            rally:<br>
+            ucontrol approach @thisx @thisy radius<br>
+            <hr>
+            <button onclick="func1('text8inf' , 'text8')">Show code without instructions</button>
+            <button onclick="copy1('copy8t')">Copy Code</button>
+        </h5>
+        <h5 id="text8" hidden>
+            getlink turret 0<br>
+            sensor contr turret controller<br>
+            ubind @flare<br>
+            sensor flag @unit @flag<br>
+            jump 0 notEqual flag 0<br>
+            sensor radius @unit @range<br>
+            jump rally equal contr 0<br>
+            sensor x turret @shootX<br>
+            sensor y turret @shootY<br>
+            ucontrol approach x y radius<br>
+            ucontrol target x y 1<br>
+            end<br>
+            rally:<br>
+            ucontrol approach @thisx @thisy radius<br>
+            <hr>
+            <button onclick="func1('text8inf' , 'text8')">Show code without instructions</button>
+            <button onclick="copy1('copy8t')">Copy Code</button>
+
+
+        <p id="copy8t" hidden>
+getlink turret 0
+sensor contr turret controller
+ubind @flare
+sensor flag @unit @flag
+jump 0 notEqual flag 0
+sensor radius @unit @range
+jump rally equal contr 0
+sensor x turret @shootX
+sensor y turret @shootY
+ucontrol approach x y radius
+ucontrol target x y 1
+end
+rally:
+ucontrol approach @thisx @thisy radius
+        </p>
+
+        <br><hr><br>
+
+        <h3 id="link8">getlink loop</h3>
+        <p>
+            How you've seen, we often use the command "GetLink" to iterate through all the blocks connected to the processor, which greatly facilitates the task since we don't have to know the exact name of the block and so on. However, many might not understand how it works, so I will explain its operation in detail.<br><br>
+            We obtain the block object as the output from "GetLink," and each block is indexed from 0 to infinity. Every block connected to the processor receives an index based on the order in which it was connected. The "@links" command shows the total number of blocks connected to the processor.
+        </p>
+        <h5 id="text9inf">
+            getlink link num<br>
+            <span># link - object of block with num index</span><br>
+            control shoot @thisx @thisy 1<br>
+            <span># control to shoot a link to processor coordinates</span><br>
+            op add num num 1<br>
+            <span># we add a 1 to index of link so get another block</span><br>
+            jump 0 lessThan num @links<br>
+            <span># and when num will be more then links, nuw will reset to 0 so we get a link loop!</span><br>
+            set num 0<br>
+            <hr>
+            <button onclick="func1('text9inf' , 'text9')">Show code without instructions</button>
+            <button onclick="copy1('copy9t')">Copy Code</button>
+        </h5>
+        <h5 id="text9" hidden>
+            getlink link num<br>
+            control shoot @thisx @thisy 1<br>
+            op add num num 1<br>
+            jump 0 lessThan num @links<br>
+            set num 0<br>
+            <hr>
+            <button onclick="func1('text9inf' , 'text9')">Show code without instructions</button>
+            <button onclick="copy1('copy9t')">Copy Code</button>
+        </h5>
+
+        <p id="copy9t" hidden>
+getlink link num
+control shoot @thisx @thisy 1
+op add num num 1
+jump 0 lessThan num @links
+set num 0
+        </p>
+    </main>
+
+    <footer>
+
+    </footer>
+
+</body>
+
+
+</html>

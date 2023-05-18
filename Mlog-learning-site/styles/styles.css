@@ -9,7 +9,7 @@ p , main ol li {
   color: rgb(216, 216, 216);
 }
 
-header h1 , main h3 , main h4 , footer h3 , footer h4 , footer h5 {
+header h2 , main h3 , main h4 , footer h3 , footer h4 , footer h5 , header h3 {
   color: rgb(216, 216, 216);
   text-align: center;
 }
@@ -103,7 +103,7 @@ em {
   size: 24px;
 }
 
-#copy-button1 , #copy-button2 {
+#copy-button1 , #copy-button2 , nav div button {
   color: aliceblue;
   background-color: rgb(46, 46, 46);
 }

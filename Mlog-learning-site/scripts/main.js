@@ -35,3 +35,12 @@ function copyToClipboard1(text1) {
     document.body.removeChild(textarea);
   }
 
+  let exp = () => {
+    let wid = links.style.width
+    if(wid != "70%"){
+      links.style.width = "70%";
+    }else{
+      links.style.width = "15%";
+    }
+  }
+

@@ -1,8 +1,9 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
     <link rel="stylesheet" href="styles/styles.css">
-    <link res="stylesheet" href="files">
+    <link rel="stylesheet" href="files">
+    <link rel="stylesheet" href="examples.html">
     <script src="scripts/main.js"></script>
     <meta charset="utf-8">
     <title>Mlog-Learning</title>
@@ -10,14 +11,16 @@
 
 <body>
     <header>
-        <h1>       
-            A website for helping learn a Mindustry Logic "M-log" for beginners<br>
-            Here you can find a lot of information about processors, codding and many other stuffs
-        </h1>
+        <h2>       
+            A website for helping learn Mindustry Logic "M-log" for beginners.<br>
+            Here, you can find a lot of information about processors, codding, and many other things
+        </h2><br>
+        <h3>Additionally, there is a separate website available that provides a wealth of code examples accompanied by thorough explanations of their functionality<br><a href="examples.html" target="_blank">[ more code's example and explaining ]</a></h3>
     </header>
-    <nav>
+    <nav id="links">
         <div id="link">
             <h3>Navigation:</h3>
+            <button onclick="exp()">expand></button>
             <ol>
                 <li><a href="#i0" id="link">Input And Output</a></li><br>
                 <ul>
@@ -132,13 +135,13 @@
 
                     <li>
                         <strong>@time</strong><br>
-                        // a time what you spend in world in milliseconds ( when you create the world and join in it the @time automatically start counting, when you leave or pause game - counting stopped , on servers @time starts when world load )
+                        // this represents the time you spend in the game world in milliseconds. The @time counter automatically starts counting when you create and join a world. When you leave or pause the game, the counting stops.
                     </li><br>
 
                     <li>
                         <strong>@tick</strong><br>
-                        // @tick do a simple what do a @time, but in ticks ( A tick is similar to FPS for most purposes )<br>
-                        // @tick resets if you exit the game with the window icon, but not when you exit using Save & Quit. (v6)
+                        // @tick is similar to @time, but it measures time in ticks.<br>
+                        // @tick resets if you exit the game using the window icon( v6 )
                     </li><br>
                     <li>
                         <strong>@unit</strong><br>
@@ -172,7 +175,7 @@
 
                     <li>
                         <strong>@air</strong><br>
-                        // can use for Set Block for destroy it ( dont work like itemDrop to @air in v6 )
+                        // can be used to set a block to air ( world command Set Block ) ( dont work like itemDrop to @air in v6 )
                     </li><br>
                 </ul>
             
@@ -183,6 +186,10 @@
             <li>
                 uradar radars from every unit of the same type of the bound unit
             </li><br>
+
+            <li>
+                You can write comments in code by # , and if you paste code with it thay will be dissapear
+            </li>
 
             <li>
                 Since logic has been introduced, there have been cooldowns and delays added to many things: <br>
@@ -238,7 +245,7 @@
             </li><br>
 
             <li>
-                If you write code outside Mindustry ( e.g. on site or in VScode ) you can use jump labels ( absolute ) instead of jump numbers ( relative ) to avoid maintaining jumps<br>
+                If you write code outside of Mindustry ( e.g. on a web-site or in VScode ) you can use jump labels ( absolute ) instead of jump numbers ( relative ) to avoid maintaining jumps<br>
                 Jump method:<br>
                 ( note that the code examples are written as you would see the code if you exported it from Mindustry. You can import them into Mindustry too )<br><br>
                 <strong>
@@ -246,7 +253,7 @@
                     end<br>
                     print "hello"
                 </strong><br>
-                you need write a number of line where you want jump, in big codes its problem, and if you delete / add line you need change number<br>
+                With the jump method, you need to write the line number where you want to jump, In large, this can be problematic, and if you delete / add lines, you need to change number<br>
                 Jump label method:<br><br>
                 <strong>
                     jump labe always 0 0<br>
@@ -254,7 +261,7 @@
                     labe:<br>
                     print "hello"
                 </strong><br>
-                You just need name of label and : , the 'labe:' does not count as a line, and when you paste the code in the game, it will disappear and the jump will be connected!<br>
+                With the jummo label method, you just need name of label and : , the 'labe:' does not count as a line, and when you paste the code into the game, it will disappear, and the jump will be connected!<br>
             </li>
         </ol>
 
@@ -273,7 +280,7 @@
         <h3>Example:</h3><br>
         <h5>
             <strong>read aCountOFunits cell1 0</strong><br>
-             // so we created a variable 'aCountOfUnits' then we tell the processor from which cell to find a value, and index of the cell for the specific number.
+             // so we created a variable ' aCountOfUnits ' then we tell the processor from which cell to find a value, and index of the cell for the specific number.
         </h5>
 
         <br><hr><br>
@@ -1478,7 +1485,7 @@ code:
 
         <h4 id="c2">@counter</h4><br><br>
 
-        <p>@counter , very nice command, it can be instead of jumps! if you do set @counter 5 a code will be always starts from 5th line!</p>
+        <p>@counter is a great command, but it's rarely applicable in the code. It can be instead of jumps, if you do <strong>set @counter 5</strong> a code will be always starts from 5th line</p>
         <h5>
             <strong>
                 set @counter 3<br>
@@ -1534,7 +1541,7 @@ code:
                 set num 0
             </strong>
         </h5>
-        <p>First we checking type of link = thorium-reactor or no, if link = thorium-reactor we checking cryofluid in it, if it grrater than 1 we ON it and num+ for checking next reactor, if cryofluid less than 1 reactor OFF, when num ( getlink ) more than links it return to 0</p>
+        <p>First we checking type of link = thorium-reactor or no, if link = thorium-reactor we checking cryofluid in it, if it greater than 1 we ON it and num+ for checking next reactor, if cryofluid less than 1 reactor OFF, when num ( getlink ) more than links it return to 0</p>
 
         <br><hr><br>
 
@@ -1589,7 +1596,7 @@ code:
 
         <h4 id="c5">Mining</h4><br><br>
 
-        <p>Uses mono to mine least items. Has a variable <strong>diffAllow</strong> ( allowance difference ) so that you can adjust when the monos change material.</p>
+        <p>Uses mono to mine least items. HAs a variable <strong>diffAllow</strong> ( allowance difference ) so that you can adjust when the monos change material.</p>
         <h5>
             <strong>
                 set unitType @mono<br>
@@ -1714,10 +1721,10 @@ ucontrol itemDrop core capacity 0 0 0
         <br><hr><br>
 
         <h3 id="c6">Attem83</h3><br>
-        <h4>Explaining why a Attem83 bad</h4><br>
+        <h4>Explaining why a binding a unit without checking flag like in attem83 codes is bad.</h4><br>
         <p>For binding units we always use a flag for any other processor can't control it ( if it have a flag cheking )</p>
         <p>So we have a situation, we play on server, on map we have 6 flares, all of it control by 1 multibind processor for transport thorium and titanium for thorium reactor scheme</p>
-        <p>And someone build scheme for T3 units with attem logic with using a 5 flares, 1 processor with attem83 code - 1 unit so this a first - , we need place a bunch of processor for T5 or some other, when player place it - logic trying bind a flare, if it fail binding 83 times it bind ANY UNIT with flag or not it dont care, so attem logic just bind a 5 flares from thorium reactor scheme, but how we know multibind ( what using it thorium scheme ) have a name of this unit's and trying to control they in time when a attem also trying to control they - unit broke. Because of this Attem83 and codes where no flag checking very bad! dont use this! For normal schemes go to official mindustry discord server, it have a #verified-schematic channel when only good schems and logic!</p>
+        <p>And someone build scheme for T3 units with attem83 logic with using a 5 flares, 1 processor with attem83 code - 1 unit so this a first - , we need place a bunch of processor for T5 or some other, when player place it - logic trying bind a flare, if it fail binding 83 times it bind ANY UNIT with flag or not it dont care, so attem logic just bind a 5 flares from thorium reactor scheme, but how we know multibind ( what using it thorium scheme ) have a object-name of this unit's and trying to control they in time when a attem83 also trying to control they - unit broke. Because of this attem83 and codes where no flag checking very bad! dont use this! For normal logi or schemes go to official mindustry discord server, it have a #verified-schematic channel when only good schems and logic!</p>
         <p>( a link to discord you can fing in game menu in bottom right )</p><br>
         <p>More about attem83 you can look <a href="https://mindustry.dev/attem">here</a></p>
 
@@ -1923,7 +1930,7 @@ ucontrol itemDrop core capacity 0 0 0
         <p>Syntaxs of Fetch:</p>
         <ul id="ul">
             <li><strong>fetch unit out @team #index</strong> // ' out ' - output object of unit what have ' #index ' number and in ' @team '</li>
-            <li><strong>fetch player out @team #index</strong> // ' out ' - output object of unit what have ' #index ' number and in ' @team '</li>
+            <li><strong>fetch player out @team #index</strong> // ' out ' - output object of player unit what have ' #index ' number and in ' @team '</li>
             <li><strong>fetch core out @team #index</strong> // ' out ' - output object of core what have ' #index ' number and in ' @team '</li>
             <li><strong>fetch build out @team #index</strong> // ' out ' - output object of unit what have ' #index ' number and in ' @team '</li>
             <li><strong>fetch unitCount out @team</strong> // output count of unit in @team</li> 
