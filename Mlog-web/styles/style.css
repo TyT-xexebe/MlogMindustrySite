@@ -1,0 +1,323 @@
+* {
+	margin: 0;
+	padding: 0;
+	
+}
+
+:root {
+	--index: calc(1vh + 1vw);
+}
+
+body {
+	background-color: rgb(19, 19, 19);
+	overflow-x: hidden;
+	padding: 0 22px 0 7px;
+}
+
+nav {
+ width: 100vw;
+	background-color: rgb(8, 8, 8);
+	height: calc(var(--index)*3);
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: stretch;
+	justify-content: space-evenly;
+	padding: 4px 4px 4px 4px;
+	z-index: 1;
+}
+
+nav h3 {
+	color: white;
+	text-align: center;
+	padding-top: calc(var(--index)*0.9);
+}
+
+nav button {
+	text-align: center;
+	border: none;
+	border-radius: 5px;
+	width: calc(var(--index)*6);
+	font-size: calc(var(--index)*0.8);
+	font-weight: 600;
+	background-color: transparent;
+	transition: 0.4s;
+	color: white;
+}
+
+nav button:hover {
+	transition: 0.4s;
+	background-color: rgb(255, 255, 255);
+	color: black;
+}
+
+nav .info {
+	display: block;
+	position: absolute;
+	top: calc(var(--index)*4);
+	width: 90%;
+	height: auto;
+	border-radius: 10px;
+	padding: 5px 5px 5px 5px;
+	transition: 0.3s;
+}
+
+nav .info .command, nav .info .example, nav .info .contact {
+	width: 100%;
+	height: 70%;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+	transition: 0.3s;
+}
+
+nav .info .command div, nav .info .example div, nav .info .contact div {
+	padding: 8px 5px 8px 5px;
+	margin: 5px 5px 5px 5px;
+	display: flex;
+	width: 30%;
+	height: 200px;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: rgb(32, 32, 32);
+	border-radius: 4px;
+	transition: 0.3s;
+}
+
+nav .info .command div:hover, nav .info .example div:hover, nav .info .contact div:hover {
+	transform: translateY(-6px);
+	transition: 0.3s;
+	background-color: rgb(0, 172, 172);
+}
+
+nav .info .command div a, nav .info .example div a, nav .info .contact div h3 {
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	background-color: transparent;
+	padding: 3px 3px 3px 3px;
+	border-radius: 3px;
+	transition: 0.3s;
+	font-weight: 600;
+}
+
+nav .info .command div a:hover, nav .info .example div a:hover {
+	transition: 0.3s;
+	background-color: rgb(2, 151, 161);
+	border-radius: 3px;
+	text-align: center;
+	padding: 5px 5px 5px 5px;
+}
+
+nav .info .contact {
+	left: calc(var(--index)*14);
+	position: relative;
+}
+
+nav .info .contact div {
+	padding: 2px 2px 2px 2px;
+	width: calc(var(--index)*16);
+	height: calc(var(--index)*12);
+}
+
+nav .info .contact div h3 {
+	font-size: calc(var(--index));
+	padding: 2px 2px 2px 2px;
+	font-weight: 400;
+}
+
+@media (orientation: portrait) {
+	nav button {
+		text-align: center;
+		border: none;
+		border-radius: 5px;
+		width: calc(var(--index)*4);
+		font-size: calc(var(--index)*0.7);
+		font-weight: 500;
+		background-color: transparent;
+		transition: 0.4s;
+		color: white;
+	}
+	
+	nav button:hover {
+		transition: 0.4s;
+		background-color: rgb(255, 255, 255);
+		color: black;
+	}
+
+	.active {
+		transition: 0.4s;
+		color: black;
+	}
+
+	nav .info .contact {
+		left: calc(var(--index)*5);
+		position: relative;
+	}
+	
+	nav .info .contact div h3 {
+		font-size: calc(var(--index)*0.9);
+		padding: 2px 2px 2px 2px;
+		font-weight: 600;
+	}
+
+	.code {
+		padding: 3px 3px 3px 3px;
+		width: 75vw;
+		height: 20vh;
+		overflow-y: scroll;
+		padding: 8px 0px 8px 0px;
+		display: block;
+		justify-content: left;
+		align-items: center;
+		background-color: rgba(39, 39, 39, 0.788);
+		border-radius: 10px;
+		letter-spacing: 1px;
+	}
+	
+	.code div button {
+		border: none;
+		padding: 3px;
+		margin-top: 8px;
+		background-color: rgb(60, 60, 60);
+		border-radius: 3px;
+		font-weight: 400;
+	}
+}
+
+main {
+	width: 100%;
+	height: auto;
+	display: block;
+	align-items: center;
+	position: static;
+	margin-top: 13vh;
+	margin-left: 2vw;
+}
+
+main * {
+	color: white;
+}
+
+.code {
+	padding: 3px;
+	width: 75vw;
+	height: 30vh;
+	overflow-y: scroll;
+	padding: 8px 0px;
+	display: block;
+	justify-content: left;
+	align-items: center;
+	background-color: rgba(39, 39, 39, 0.788);
+	border-radius: 10px;
+	letter-spacing: 1px;
+}
+
+.code div button {
+	border: none;
+	padding: 3px;
+	margin-top: 10px;
+	background-color: rgb(60, 60, 60);
+	border-radius: 3px;
+	font-weight: 500;
+}
+
+.code div {
+	display: flex;
+	position: sticky;
+	top: 0;
+	height: auto;
+	margin-top: 10px;
+	left: 42vw;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 300px;
+}
+
+.code h5 {
+	padding: 3px 3px 3px 3px;
+	font-size: calc(var(--index)*0.7);
+	font-weight: 500;
+}
+
+h5 {
+	padding: 3px 3px 3px 3px;
+	font-size: calc(var(--index)*0.9);
+	font-weight: 400;
+}
+
+.purple {
+	color: rgb(172, 8, 172);
+}
+
+.cyan {
+	color: rgb(26, 226, 183);
+}
+
+.yellow {
+	color: rgb(218, 233, 17);
+}
+
+.green {
+	color: rgb(4, 158, 4);
+}
+
+main div .basic h3 {
+	font-weight: 500;
+	font-size: calc(var(--index)*1.2);
+	text-align: center;
+}
+
+main div .basic p {
+	font-weight: 300;
+	font-size: calc(var(--index));
+	text-align: center;
+}
+
+main div .basic ul {
+	list-style-type: none;
+	padding: 6px 10px 6px 10px;
+	border-radius: 5px;
+	background-color: rgb(29, 29, 29);
+	margin: 10px 0 10px 0;
+}
+
+main div .basic ul li {
+	font-weight: 300;
+	font-size: calc(var(--index)*0.9);
+	padding: 6px 0 6px 0;
+}
+
+pre, main div .basic ul li span{
+	color: rgb(223, 223, 25);
+}
+
+ul li {
+	list-style-type: none;
+	font-weight: 300;
+	font-size: calc(var(--index)*0.9);
+	padding: 2px 0 2px 0;
+	margin: 0 0 0 40px;
+}
+
+button.active {
+	transition: 0.4s;
+	background-color: rgb(0, 149, 168);
+	color: black;
+}
+
+h4 {
+	font-weight: 300;
+	font-size: calc(var(--index)*0.9);
+	color: white;
+}
+
+footer {
+	padding-top: 150px;
+}
