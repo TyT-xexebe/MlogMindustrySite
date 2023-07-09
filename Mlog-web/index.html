@@ -435,7 +435,7 @@ print "hello"</pre>
 
 							<li>
 								<h5>
-									control shoot block1 0 0 0 0
+									control shoot block1 0 0 0
 									# control a turret to shoot to coordinates 
 								</h5>
 							</li>
@@ -846,6 +846,7 @@ print "hello"</pre>
 							<li><h5>ucontrol flag value</h5> # flagging unit using numbers</li>
 							<li><h5>ucontrol build x y block rotate config</h5> <p class="yellow"> build command block on most servers</p> # 'x' 'y' of building, 'block' (@surge-wall) 'rotate' 0 1 2 3, 'config' (if build sorter you can write @copper, and when unit builds a sorter it will be set to copper)</li>
 							<li><h5>ucontrol getBlock x y type build floor</h5> # checking floor, type and block at x y coordinates (unit need be within 27 tiles or their radius if larger to coordinates!)</li>
+							<li><h5>ucontrol pathfind x y</h5> # find path to the coordinates (the naval units will be find path only if on coordinates any water floor and no any buidings? ground will find path only if on coordinates no any building, so this command good only for air and T1-T4 nova tree (anuke fix it pls, do it like normal))</li>
 							<li><h5>ucontrol within x y radius out</h5> # checking unit around radius, output 0/1 if unit out/in of radius</li>
 							<li><h5>ucontrol unbind</h5> # unbinds units. Returns unit to default AI.</li>
 						</ul>
@@ -2344,7 +2345,7 @@ print "hello"</pre>
 
 							<li>
 								<h5>
-									control shoot block1 0 0 0 0
+									control shoot block1 0 0 0
 									# стрельба пушки на заданные координаты
 								</h5>
 							</li>
@@ -2752,6 +2753,7 @@ print "hello"</pre>
 								<li><h5>ucontrol flag value</h5> # установить флаг для юнита с использованием чисел</li>
 								<li><h5>ucontrol build x y block rotate config</h5> <p class="yellow">команда для строительства заблокирована на большинстве серверов</p> # 'x' 'y' координаты строительства, 'block' (@surge-wall) 'rotate' 0 1 2 3, 'config' (если строите сортировщик, вы можете написать @copper, и когда юнит построит сортировщик, он будет установлен на медь)</li>
 								<li><h5>ucontrol getBlock x y type build floor</h5> # проверить пол, тип и блок на координатах x и y (юнит должен находиться в пределах 27 блоков или их радиуса)</li>
+								<li><h5>ucontrol pathfind x y</h5> # юнит ищет путь к координатам, для водных юнитов работает только если на координатах находится водный пол и нету строений, наземные юниты будут искать путь только если на координатах нету строений, то есть команда нормальная только для воздушних и Т1-4(ветки новы) юнитов (anuke fix it pls, this command just useless!)</li>
 								<li><h5>ucontrol within x y radius out</h5> # проверяет ли юнит вокруг радиуса заданных координат, выводит 0/1, если юнит вне/внутри радиуса</li>
 								<li><h5>ucontrol unbind</h5> # анбиндит юнитов, возвращает юниту исходный ИИ.</li>
 							</ul>
